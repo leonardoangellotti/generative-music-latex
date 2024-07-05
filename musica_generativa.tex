@@ -80,10 +80,9 @@
     \end{center}
 \end{titlepage}
 
-% Inizio della tesi vera e propria
-\chapter*{Capitolo 1}
-\section*{Introduzione}
-% Qui inizia il testo della tesi
+\tableofcontents
+
+\chapter{Introduzione}
 
 C’è una grande differenza tra “impossibile” e “difficile da immaginare”. Il primo riguarda questo; la seconda riguarda te!
 
@@ -128,24 +127,25 @@ Questo genere di modelli possono quindi essere utilizzati per esplorare scelte c
 Un artista dotato, d'altra parte, potrebbe ascoltare la stessa composizione casuale e uscirne con un'idea completamente nuova, una in gado di innescare una nuova forma di melodia."
 - Margaret Boden (2016, intervista con IBM)
 
-\subsection*{1.1 Obiettivi}
-% Contenuto degli obiettivi
-In questo sotto capitolo, descriviamo gli obiettivi principali della tesi. Gli obiettivi includono...
+\section{Motivazioni dello studio}
 
-\subsection*{1.2 Struttura Tesi}
-% Contenuto della struttura della tesi
-In questo sotto capitolo, descriviamo la struttura della tesi. La tesi è organizzata come segue...
+sono bello
 
-\chapter*{Capitolo 2}
-\section*{Nozioni di base}
-% Qui inizia il testo del secondo capitolo
-In questo capitolo, descriviamo le nozioni di base necessarie per comprendere il lavoro svolto nella tesi. Le nozioni di base includono...
+\subsection{Obiettivi della tesi}
 
-\chapter*{Capitolo 3}
-\section*{Metodi di generazione}
-% Qui inizia il testo del terzo capitolo
+simpatico 
 
-\subsection*{generazione melodia}
+\section{Struttura della tesi}
+
+intelligente
+
+\chapter{Nozioni di Base}
+
+il magico mondo della musica
+
+\chapter{Metodi di generazione}
+\section{generazione melodia}
+
 
 Quando si considera il problema della generazione della musica, la forma più semplice di esercizio che viene in mente è la composizione di melodie monofoniche senza accompagnamento.
 
@@ -194,7 +194,8 @@ Le note della melodia sono limitate solo a quelle dell'accordo corrispondente in
 Ad ogni punto si decide, sulla base di un modello markoviano del secondo ordine, di invertire i frammenti melodici basati sull'accordo, oppure di copiare quello precedente.
 Le brevi melodie risultanti tuttavia hanno un suono estraneo, ciò è legato al fatto che il "piano", o l'approccio melodico, non è quello utilizzato dagli esseri umani, infatti il sistema non discrimina le sequenze "non familiari".
 
-\subsection*{armonia}
+
+\subsection{armonia}
 
 Il contesto è definito dalla relazione verticale tra melodia e armonia (cioè, le note che suonano contemporaneamente) così come dai modelli orizzontali delle transizioni degli accordi (cioè, la relazione delle note nel tempo).
 Oltre ai confronti diretti della somiglianza armonica, il risultato di un sistema di generazione di accordi può essere valutato anche secondo altri criteri come la somiglianza con un genere o con la musica di un particolare artista.
@@ -214,7 +215,8 @@ Uno svantaggio di questo approccio è che le sequenze di accordi generate tendon
 Steedman [1984] ha studiato il blues a 12 battute e ha definito un piccolo insieme di regole utilizzando una grammatica generativa che produce progressioni di accordi riconoscibili del blues a 12 battute. 
 Come notato nell'articolo, non c'è stato alcun tentativo esplicito di generare buone progressioni di accordi o di evitarne di cattive. Invece, Steedman ha esaminato le progressioni e le sostituzioni di accordi armonicamente significative al fine di generare sequenze per accompagnare le melodie.
 
-\subsection*{ritmo}
+
+\subsection{ritmo}
 
 Nei sistemi di generazione musicale, il ritmo è spesso considerato dato o incorporato come attributo di una nota. 
 Esistono meno sistemi di generazione ritmica rispetto a sistemi di melodia e armonia.
@@ -227,10 +229,10 @@ Per la valutazione, i partecipanti utilizzano il sistema per produrre progressio
 Un algoritmo genetico è stato implementato anche da Ariza (2002) per generare ritmi che consistono in una sequenza di variazioni genetiche.
 La sua funzione fitness consiste nel calcolare la distanza tra un ritmo e un “ritmo originale” fornito dall'utente attraverso differenti misure di distanza. 
 
-\subsection*{3.1 Algoritmo Genetico}
-% Contenuto Algoritmo Genetico
+\section{Algoritmo Genetico}
 
-2 Musica evolutiva
+\subsection{musica evolutiva}
+
 L'applicazione dei metodi EC ai compiti musicali ha cominciato ad emergere all'inizio degli anni '90, insieme ad altre applicazioni più tradizionali dell'EC. 
 
 Nell'applicare la CE alla musica ci sono una vasta gamma di aspetti da considerare, tuttavia, i tre criteri fondamentali da considerare in anticipo sono l'ambito del problema, la rappresentazione individuale e la misura dell'idoneità. 
@@ -256,7 +258,8 @@ Questo è uno degli aspetti più impegnativi della progettazione di tali esperim
 Questa sezione discute numerosi studi che hanno applicato la CE a vari compiti di composizione musicale. 
 Ciascuno studio prevede l'applicazione di algoritmi genetici (GA).
 
-2.1 Prime applicazioni dell'EC alla musica
+\subsection{Prime applicazioni dell'EC alla musica}
+
 
 Horner e Goldberg furono tra i primi ad applicare un GA al processo di composizione musicale considerando il “ponte tematico”. 
 In questo si considerava la trasformazione di una frase melodica in un'altra attraverso l'uso di un insieme di operazioni definito. 
@@ -299,8 +302,7 @@ Le misure di fitness basate su un corpus musicale o su un insieme di regole musi
 
 Affinché tale funzione di fitness indichi la vera creatività musicale, tuttavia, dovrebbero essere fortemente giustificate. Tali misure guidano l’evoluzione, ma indipendentemente da quanto coinvolta o sfaccettata sia una data misura di fitness, è sicuramente impossibile dire che questa sia la misura definitiva della musica.
 
-\subsection*{3.2 L-System}
-% Contenuto L-System
+\section{L-System}
 
 Per prima cosa, sperimentiamo con i L-System esistenti che producono “piante” dall’aspetto gradevole, e proviamo a scoprirne gradevoli interpretazioni musicali.
 
@@ -311,10 +313,11 @@ una sequenza di n Fa come “suona una singola nota di durata n”.
 Quindi una nota viene interrotta da un cambiamento di altezza, da un nuovo ramo o dalla desinenza del ramo corrente. 
 La resa sequenziale del sistema L "a foglia" di quarta generazione è ritmicamente interessante e ha senso melodicamente:
 
+
 % Inserimento di un'immagine
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine1} % Sostituisci con il percorso al file della tua immagine
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine1} 
     \caption{Descrizione dell'immagine}
     \label{fig:immagine}
 \end{figure}
@@ -329,7 +332,7 @@ In questa versione, la “foglia” ora suona come
 % Inserimento di un'immagine
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine2} % Sostituisci con il percorso al file della tua immagine
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine2} 
     \caption{Descrizione dell'immagine}
     \label{fig:immagine}
 \end{figure}
@@ -351,7 +354,7 @@ Le rappresentazioni schenkeriane di tre diverse produzioni di questo L-System st
 % Inserimento di un'immagine
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine3} % Sostituisci con il percorso al file della tua immagine
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine3} 
     \caption{Descrizione dell'immagine}
     \label{fig:immagine}
 \end{figure}
@@ -373,9 +376,7 @@ Tuttavia, il tentativo di ottenere una grafica contemporaneamente gradevole part
 L-System più potenti, come gli L-System parametrici, potrebbero essere utilizzati per generare musica più complessa e realistica. Una possibilità interessante è l'uso di sistemi L con input ambientali [8]. 
 Questi sono stati sviluppati per modellare gli effetti ambientali sulla crescita delle piante (sole, ombra, ecc.), ma potrebbero essere applicabili alla generazione musicale, per consentire a due L-System di far crescere insieme la loro musica come diversi “strumenti” per reagire l’uno all’altro.
 
-\chapter*{Capitolo 4}
-\section*{Algoritmo genetico}
-% Qui inizia il testo del secondo capitolo
+\chapter{Algoritmo genetico}
 
 Viene ora introdotto un progetto di algoritmo genetico utile ad esemplificare fin quanto detto.
 
@@ -409,7 +410,7 @@ Restituisce un array, dove ogni numero rappresenta il codice MIDI di ogni nota. 
 
 Viene eseguita poi l'evoluzione vera e propria, attraverso la crescita del genoma.
 
-\subsection*{Run-Evolution}
+\subsection{Run-Evolution}
 
 \begin{lstlisting}[language=Python]
 
@@ -562,13 +563,100 @@ I pesi (smoothnessWeight, restWeight, harmonyWeight) permettono di enfatizzare o
 Ad esempio, aumentando il peso della fluidità, si darà maggiore importanza alle transizioni tra le note, mentre aumentando il peso dell'armonia, si enfatizzerà la qualità armonica della melodia. 
 Questo metodo di valutazione è utile in contesti come algoritmi genetici per la generazione di musica, dove è necessario valutare e selezionare sequenze musicali basate su criteri compositi.
 
-\subsection*{risultati}
+\subsection{risultati}
 
+Eseguiamo dunque il programma.
+Sono riportati le opzioni scelte per una generazione musicale esemplificativa.
 
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/setting} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
 
-\chapter*{Capitolo 5}
-\section*{Conclusioni}
-% Qui inizia il testo del secondo capitolo
+al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti dalla fitness function, per i genomi di ogni popolazione.
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/scores} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+Le linee che si mantengono costanti sono i punteggi dei primi due genomi (con punteggio più alto ad ogni generazione) che nell'algoritmo scelto vengono tramandati senza alcuna alterazione (crossover, mutation).
+Quando "nasce" un nuovo genoma che si verifica avere un punteggio più altro dei primi due, questo fissa un nuovo livello di punteggio superiore ai precedenti, che viene mantenuto finché ciò non accade nuovamente.
+Questa procedura garantisce un costante aumento del punteggio e un conseguente miglioramento tra le popolazioni.
+La nuvola di punti che appaiono al di sotto, con punteggio inferiore, appartengono al set di genomi soggetti a crossover e mutazioni.
+
+Al termine della procedura evolutiva, vengono stampati i 10 genomi appartenenti all'ultima popolazione.
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/MIDI} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+La stampa rappresenta 10 file midi, dal migliore (numero 0) al "peggiore" (numero 9) secondo la nostra fitness-function.
+Le note sono rappresentate dalle linee orizzontali che appaiono a diverse altezze di pitch, indicati nell'asse delle ordinate.
+Le note sono sequenziali, appaiono dunque in momenti consecutivi, con diversa durata (dettata dal ritmo scelto dall'utente)
+Si ricorda che l'algoritmo genera una sequenza monofonica, infatti non appare più di una nota contemporaneamente.
+
+Le sequenze vengono salvate su disco. 
+Il genoma migliore prende il nome di best_genome.mid, mentre ai restanti viene assegnato un numero in ordine decrescente in punteggio (genome_0.mid, ..., genome_8.mid).
+
+Ad un primo ascolto di best_genome.mid, percepiamo un movimento coerente nella teoria, ordinato nel ritmo, ma non regolare nel tempo. 
+Non viene percepita infatti alcuna vera struttura compositiva, questo perché la fitness function si è preoccupata di fare confronti solo tra una nota e la precedente, e non tra tutte le note della sequenza.
+Non esiste dunque una vera struttura a lungo termine, una struttura narrativa, avente inizio svolgimento e fine, propria invece di qualsiasi genere musicale.
+Non è presente nemmeno il classico schema delle canzoni pop: verso-ritornello-verso-ritornello-bridge-ritornello.
+
+Per ovviare a questo difetto si procedere con un'operazione naive ma efficace:
+Si decide di generare una nuova sequenza, chiamata repeated_melody.mid, la quale ripete per 4 volte le prime 3 bar prese dal best_genome.mid.
+Il risultato risulta essere "ripetitivo" e dunque intrinsecamente più regolare, oltre a essere per il nostro orecchio più confortevole.
+
+Abbiamo dunque ottenuto un risultato teorico "accettabile" e coerente. 
+Possiamo ottenere di più nella pratica?
+Si.
+Importando il file midi (repeated_melody.mid) in una DAW (Digital Audio Workstation, in questo caso è stato utilizzato Ableton) possiamo apportare ulteriori modifiche.
+Viene assegnata alla traccia lo strumento Grand Piano. 
+Sue questa vengono applicate le seguenti opzioni
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/ableton_settings} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+"MinorTim" permette di generare più note, ad una certa distanza in semitoni, partendo dalla nota corrente. 
+Nel caso specifico un accordo minore.
+Tuttavia un primo ascolto risulta essere poco piacevole, perché le note generate non considerano la scala di riferimento.
+È necessario dunque usare lo strumento "Minor" per ancorare ogni nota in una posizione coerente.
+Il risultato è decisamente più armonico, seppur tuttavia ancor troppo "piatto" con nessuna variazione nell'esecuzione.
+Per far fronte a questa "freddezza" ed aumentare la dinamicità è possibile randomizzare, in modo automatico, i valori di Velocity nella sequenza per ciascuna nota.
+Un nuovo ascolto ci ricorda un qualche compositore jazz, immerso nel suo fiume di sentimenti, vissuti istante per istante, 
+ma che vuole comunque mantenere, per piacere della clientela, un ritmo e melodia regolari.
+
+Per rendere il risultato ancor più gradevole, e musicalmente completo, possiamo aggiungere un elemento di percussioni, come una batteria.
+Per il risultato ottenuto è stato utilizzato il plug-in Magenta (https://magenta.tensorflow.org/studio) sviluppato da Google e attualmente disponibile gratuitamente.
+In particolare è stato utilizzata la funzione "Drumify", che data una sequenza di note, genera un secondo file MIDI in cui, similmente per il piano, vengono indicate le parti della batteria da percuotere (piatto, charleston, gran cassa, rullante).
+In particolare, nel risultato finale, quest'ultima sequenza MIDI è stata processata dal Plugin SuperiorDrummer3 (https://www.toontrack.com/product/superior-drummer-3/?gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0H2FsGI5sBj5JLtPNhhiKiLf9qMEccOntk8F9uc4_ZvSDPK5TCZZKUaAg1LEALw_wcB),
+una libreria sofisticata che raccoglie suoni di batteria accurati.
+Si vuole far notare, che l'algoritmo implementato in Drumify, si basa su una neural network, non è di tipo genetico come nel caso del nostro esempio, in grado dunque di cogliere e sviluppare una certa consequenzialità tra parti.
+
+Infine, per le basse frequenze è stata aggiunta una semplice linea di basso, trasponendo la melodia due ottave inferiori, eliminando a mano, secondo il propio gusto, le note ridondanti, lasciando invece quelle fondamentali e di maggiore durata.
+
+Il risultato finale, nello specifico, è "quasi" accettabile, considerando che per generarlo sono state necessarie poco più di 500 linee di codice (commenti inclusi) e qualche plugin dal mondo di internet.
+Il tratto fondamentale risiede nel fatto che per ottenere questo file mp3, non abbiamo mai: né dovuto suonare un pianoforte, slappare un basso o ritmare una batteria a tempo.
+
+Si possono sperimentare ulteriori modifiche, cambiando i pesi (smoothnessWeight, restWeight, harmonyWeight) o implementando un sistema nell'assegnazione della durata e velocity nelle note, ora affidate ad array con valori prefissati (rock, jazz, dance, bossa nova) e ad una scelta random rispettivamente.
+
+\chapter{Conclusioni}
 
 Negli ultimi decenni, la ricerca sulla generazione musicale ha compiuto enormi progressi nella generazione di aspetti ben definiti della musica come la melodia, l’armonia, il ritmo e il timbro. 
 Modelli statistici all’avanguardia, tecniche di ottimizzazione avanzate, database digitali più grandi su cui addestrare i modelli e l’aumento della potenza di calcolo hanno portato alla produzione di sistemi migliori. 
@@ -596,6 +684,13 @@ Una delle caratteristiche della musica generata dal computer che viene spesso tr
 Mentre un'applicazione potrebbe essere quella di adattare la nuova musica a un certo livello di abilità del musicista, esiste anche la possibilità di utilizzare la difficoltà di esecuzione rilevata/calcolata come misura di valutazione per la musica generata.
 
 Rimane difficile, tuttavia, confrontare oggettivamente sistemi diversi poiché di solito accettano parametri di input diversi, generano aspetti musicali diversi, sono addestrati su stili diversi o non hanno esempi audio disponibili per il lettore. Inoltre, negli esperimenti di ascolto, l’effetto di mera esposizione [Zajonc 1968] farà sì che gli ascoltatori preferiscano i brani esistenti rispetto a quelli nuovi, poiché la familiarità provoca un maggiore godimento.
+
+\appendix
+\chapter{Appendice A}
+\section{Dettagli aggiuntivi}
+
+\chapter{Appendice B}
+\section{Altro materiale supplementare}
 
 % Esempio di citazione
 Come descritto da Lamport \cite{latex}, e come discusso da Doe e Smith \cite{example_article}, i metodi utilizzati sono basati su...
