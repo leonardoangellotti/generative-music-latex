@@ -414,7 +414,7 @@ def displayPianoRoll(population):
 
         ax.set_xlabel('Time')
         ax.set_ylabel(idx)
-        ax.set_ylim(45, 80)  # Adjust based on the range of notes
+        ax.set_ylim(45, 90)  # Adjust based on the range of notes
         ax.set_xlim(0, time)
         ax.grid(True)
     
