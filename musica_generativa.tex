@@ -42,7 +42,7 @@
 % Pagina del titolo
 \begin{titlepage}
     \begin{center}
-        \includegraphics[width=0.15\textwidth]{units_sigillo.png} % Sostituisci con il percorso al logo della tua università
+        \includegraphics[width=0.15\textwidth]{units_sigillo.png} 
         \vspace{1cm}
         
         \textsc{\LARGE Università degli studi di Trieste}\\[1.5cm]
@@ -83,6 +83,8 @@
 \tableofcontents
 
 \chapter{Introduzione}
+
+Sebbene Stravinsky sia famoso per aver affermato: “i buoni compositori prendono in prestito e i grandi compositori rubano”, 
 
 C’è una grande differenza tra “impossibile” e “difficile da immaginare”. Il primo riguarda questo; la seconda riguarda te!
 
@@ -131,7 +133,7 @@ Un artista dotato, d'altra parte, potrebbe ascoltare la stessa composizione casu
 
 sono bello
 
-\subsection{Obiettivi della tesi}
+\section{Obiettivi della tesi}
 
 simpatico 
 
@@ -144,175 +146,186 @@ intelligente
 il magico mondo della musica
 
 \chapter{Metodi di generazione}
-\section{generazione melodia}
 
+\section{generazione melodia}
 
 Quando si considera il problema della generazione della musica, la forma più semplice di esercizio che viene in mente è la composizione di melodie monofoniche senza accompagnamento.
 
 Nella maggior parte dei sistemi di generazione di melodie, l'obiettivo è comporre melodie con caratteristiche simili allo stile scelto.
 
-Questi sistemi dipendono da una funzione di fitness per valutare l'idoneità delle sequenze di output o per eliminare i candidati generati. 
-Tale funzione di fitness è spesso basata sulla somiglianza con un determinato corpus, stile, brano o in generale alle regole teoriche musicali esistenti.
+Questi sistemi dipendono da una fitness-function che valuta le sequenze generate.
+Tale funzione di fitness è spesso basata sulla somiglianza con un determinato corpus, stile o brano, o dipende in generale dalle regole teoriche musicali.
 
 Caratteristiche esemplificative includono la tonalità, gli intervalli e durate.
 
-I primi tentativi di generare melodie con i computer risalgono al 1956, quando Pinkerton costruì un \textbf{modello markoviano di primo ordine} , il “Banal Tune-Maker”, basato su un corpus di 39 semplici filastrocche.
-I modelli tendono ad essere più ripetitivi, e quelli generati da modelli di ordine inferiore registravano più casualità.
+I primi tentativi di generare melodie con i computer risalgono al 1956, quando Pinkerton costruì un \textbf{modello markoviano di primo ordine} , il “Banal Tune-Maker”, basato su un corpus di 39 semplici filastrocche,
+tuttavia il modello tendeva ad essere ripetitivo.
 
-Il compromesso tra la composizione di brani simili a lavori esistenti e input nuovi e creativi è delicato. 
-Sebbene Stravinsky sia famoso per aver affermato: “i buoni compositori prendono in prestito e i grandi compositori rubano”, 
-le macchine non hanno ancora la capacità di distinguere tra il furto astuto e il plagio totale.
+Un altro problema nell'uso delle catene di Markov risiedeva nel plagio, le melodie infatti tendevano ad essere toppo simili a quelle originali.
 
-Studi hanno esaminato i problemi di plagio derivanti da catene di Markov di ordine superiore.
-In questi viene introdotta la variabile MaxOrder, che indica il massimo ordine di sottosequenze consentito in una sequenza generata, per limitare le ripetizioni eccessive di materiale dal brano musicale originale.
+Il compromesso tra la composizione di brani simili a lavori esistenti, contro la necessità di doverne creare di nuovi e creativi, è difficile da ricercare. 
+Stravinsky, celebre compositore Russo, ha affermato: “i buoni compositori copiano, i grandi compositori rubano”.
+Riferendosi a quest'idea tuttavia le macchine non hanno ancora la capacità di distinguere tra il furto astuto e il plagio totale.
 
-Esempi di applicazioni di tali vincoli di controllo includono i requisiti che una sequenza sia globalmente ascendente o segua un intorno di tonalità arbitrario.
+Con quest'intuizione è stata poi introdotta la variabile MaxOrder, ad indicare il massimo ordine di sottosequenze consentito in una sequenza generata, per limitare le ripetizioni eccessive di materiale.
+
+Applicazioni di tali vincoli di controllo possono essere: la volontà che una sequenza sia globalmente ascendente o che segua invece un intorno di note arbitrario.
+
+Davismoon ed Eccles (2010) sono stati alcuni dei primi ricercatori a inquadrare la generazione musicale come un problema di ottimizzazione combinatoria con un modello di Markov. 
+Per valutare la musica generata, il loro sistema costruisce un secondo modello di Markov, riducendo poi al minimo la distanza euclidea tra il modello originale e il nuovo modello. 
+Per risolvere questo problema di minimizzazione è stato utilizzato un processo di simulated-anealing.
 
 Comporre una melodia monofonica può sembrare un compito semplice rispetto alla partitura di un'intera sinfonia. 
-Tuttavia, le melodie sono più che semplici movimenti tra le note, normalmente possiedono una struttura a lungo termine. 
-Negli ultimi anni, alcune ricerche hanno dimostrato l’efficacia dell’utilizzo di tecniche come l’ottimizzazione e il deep learning per rafforzare la struttura a lungo termine.
+Tuttavia, le melodie sono più che semplici movimenti tra le note, normalmente possiedono una \textbf{struttura a lungo termine}. 
+Negli ultimi anni, alcune ricerche hanno dimostrato l’efficacia dell’utilizzo di tecniche come il deep learning per rafforzare la struttura a lungo termine.
 
-Davismoon ed Eccles (2010) sono stati alcuni dei primi ricercatori a inquadrare la generazione musicale come un problema di ottimizzazione combinatoria con un modello di Markov integrato da una funzione obiettivo. 
-Per valutare la musica generata, il loro sistema costruisce un secondo modello di Markov, basato sulla musica generata, in modo da consentire al sistema di ridurre al minimo una distanza euclidea tra il modello originale e il nuovo modello. 
-Hanno utilizzato il simulated annealing, una metaeuristica ispirata a una tecnica metallurgica, utilizzata per raffreddare un solido cristallino, per risolvere il problema di minimizzazione della distanza. 
+Un recente studio di Roig (2014) genera melodie, concatenando pattern ritmici e melodici, campionandole da un database. 
+La selezione viene effettuata sulla base di regole musicali combinate ad un sistema probabilistico. 
+Questo approccio consente al modello di generare melodie con una struttura più ampia, facendo sì che il pezzo abbia momenti di auto-somiglianza.
 
-Un recente studio di Roig et al. [2014] genera melodie concatenando pattern ritmici e melodici campionati da un database. 
-La selezione viene effettuata sulla base di regole combinate con un metodo probabilistico. 
-Questo approccio consente al sistema di generare melodie con struttura su scala più ampia come modelli ripetuti, che fanno sì che il pezzo abbia momenti di auto-somiglianza.
-ciò comporta l'utilizzo della programmazione intera con vincoli strutturali per generare assoli di chitarra da brevi riff esistenti.
-
-Horner e Goldberg (1991), pionieri nell'applicazione degli algoritmi genetici (GA) alla composizione musicale, affrontano il problema del bridging tematico, la trasformazione di un pattern musicale iniziale in uno finale durante una durata specificata. 
-Un algoritmo genetico è un tipo di metaeuristica diventato popolare negli anni '70. 
-Solitamente mantiene un insieme (chiamato popolazione) di soluzioni e combina le soluzioni di questo insieme per formarne di nuove. 
-Nel lavoro di Horner e Goldberg, sulla base di una serie di operatori, un pattern melodico iniziale viene trasformato per assomigliare al pattern finale utilizzando un algoritmo genetico. 
-Il risultato finale consiste in una concatenazione di tutti i modelli incontrati durante questo processo.
+Horner e Goldberg (1991), pionieri nell'applicazione degli algoritmi genetici (GA) nella composizione musicale, affrontano il problema del "interpolazione tematica", ovvero la trasformazione di un pattern musicale iniziale in uno finale, durante una durata specificata. 
+Per farlo hanno utilizzato un algoritmo genetico, un tipo di metaeuristica diventato popolare negli anni '70. 
+Solitamente genera un insieme (chiamato popolazione) di soluzioni, e attraverso una combinazione (simile a quella genetica) ne genera di nuove.
 
 Sebbene esista molto lavoro sulla generazione di accordi data una melodia, alcuni studi si concentrano viceversa, sulla generazione di una melodia che si adatti a una sequenza di accordi.
 
-Moorer (1972), ad esempio, genera prima una sequenza di accordi, poi una linea melodica adattandola di conseguenza.
+Moorer (1972), ad esempio, genera prima una sequenza di accordi, e poi una linea melodica su questa.
 Le note della melodia sono limitate solo a quelle dell'accordo corrispondente in un dato momento. 
-Ad ogni punto si decide, sulla base di un modello markoviano del secondo ordine, di invertire i frammenti melodici basati sull'accordo, oppure di copiare quello precedente.
-Le brevi melodie risultanti tuttavia hanno un suono estraneo, ciò è legato al fatto che il "piano", o l'approccio melodico, non è quello utilizzato dagli esseri umani, infatti il sistema non discrimina le sequenze "non familiari".
-
+Ad ogni punto si decide, sulla base di un modello markoviano del secondo ordine, di invertire i frammenti melodici basati sull'accordo, oppure di copiarne da quello precedente.
+Le brevi melodie risultanti tuttavia hanno un suono estraneo, ciò è legato al fatto che l'approccio melodico, non è quello utilizzato dagli esseri umani, infatti il sistema non discrimina le sequenze "non familiari".
 
 \subsection{armonia}
 
-Il contesto è definito dalla relazione verticale tra melodia e armonia (cioè, le note che suonano contemporaneamente) così come dai modelli orizzontali delle transizioni degli accordi (cioè, la relazione delle note nel tempo).
-Oltre ai confronti diretti della somiglianza armonica, il risultato di un sistema di generazione di accordi può essere valutato anche secondo altri criteri come la somiglianza con un genere o con la musica di un particolare artista.
-Il sistema deve generare sequenze riconoscibili nel genere target o appartenenti a un particolare corpus, ma non “sostanzialmente simili” ad esso [Liebesman 2007] in modo da evitare accuse di plagio.
+L'armonia è definita da una relazione verticale tra note, che suonano contemporaneamente, e orizzontale, cioè la relazione delle note nel tempo, come le transizioni tra accordi.
+Il sistema può essere valutato secondo criteri come, la somiglianza con un genere musicale, o con la musica di un particolare artista.
+Il sistema deve generare sequenze riconoscibili nel genere target, ma non “sostanzialmente uguali”.
 
-Il problema generale dell'armonizzazione può essere considerato come quello di determinare più eventi di note sincronizzate per soddisfare determinati criteri definiti dall'utente.
+La maggior parte degli studi adotta approcci basati sul training-set per determinare possibili accordi per un dato segmento melodico, e per garantire una corretta transiizione tra questi.
+Questi sistemi comunemente producono uno scheletro armonico, e utilizzano modelli predefiniti per creare trame ritmiche e arrangiamenti.
 
-La maggior parte degli studi adotta approcci basati sui dati per determinare possibili accordi per un dato segmento melodico e per garantire che le transizioni da accordo a accordo siano comunemente osservate negli esempi.
-I sistemi tipicamente producono uno scheletro armonico e utilizzano modelli predefiniti per creare trame ritmiche e arrangiamenti strumentali.
+Lee e Jang (2004) hanno utilizzato il modello di Markov del primo ordine, integrato con programmazione dinamica, per determinare il pattern armonico di una melodia canticchiata dall'utente; 
+le probabilità di transizione dalle note correnti vengono apprese da 150 canzoni. 
 
-Lee e Jang [2004] hanno utilizzato il modello di Markov del primo ordine con programmazione dinamica per determinare lo scheletro armonico di una melodia canticchiata dall'utente; 
-le probabilità di transizione dello stato vengono apprese da 150 canzoni. 
-
-Simon et al. [2008] ha adottato un approccio simile; allenando il proprio sistema su 298 brani di vari generi come jazz, rock, pop, blues e altri. Entrambi i sistemi vengono valutati tramite feedback soggettivo derivante da esperimenti di ascolto. 
+Simon (2008) ha adottato un approccio simile; allenando il proprio sistema su 298 brani di vari generi come jazz, rock, pop, blues e altri. 
+Entrambi i sistemi vengono valutati tramite feedback soggettivo, cioè da un umano e non da una qualche fitness-function, derivanti da sessioni di ascolto. 
 Uno svantaggio di questo approccio è che le sequenze di accordi generate tendono ad essere generiche e indistinte nello stile.
 
-Steedman [1984] ha studiato il blues a 12 battute e ha definito un piccolo insieme di regole utilizzando una grammatica generativa che produce progressioni di accordi riconoscibili del blues a 12 battute. 
-Come notato nell'articolo, non c'è stato alcun tentativo esplicito di generare buone progressioni di accordi o di evitarne di cattive. Invece, Steedman ha esaminato le progressioni e le sostituzioni di accordi armonicamente significative al fine di generare sequenze per accompagnare le melodie.
-
+Steedman (1984) ha studiato il blues a 12 battute, definendo un piccolo insieme di regole, riuscendo a produrre progressioni di accordi tipiche dello stile.
+Come notato nell'articolo, non c'è stato alcun tentativo esplicito di generare buone progressioni di accordi o di evitarne di cattive. 
 
 \subsection{ritmo}
 
-Nei sistemi di generazione musicale, il ritmo è spesso considerato dato o incorporato come attributo di una nota. 
-Esistono meno sistemi di generazione ritmica rispetto a sistemi di melodia e armonia.
+Nei sistemi di generazione musicale, il ritmo deriva spesso dalla durata intrinseca di ciascuna nota. 
+In generale, esistono meno sistemi di generazione ritmica rispetto a sistemi melodici.
 
-Tokui e Iba (2000) hanno proposto il sistema CONGA che combina algoritmi genetici e programmazione genetica per produrre modelli ritmici evolutivi, con l'utente come funzione fitness.
+Tokui e Iba (2000) hanno proposto il sistema CONGA, che usa algoritmi genetici per produrre modelli ritmici, usando l'utente umano come funzione fitness.
+Brevi frammenti di schemi ritmici formano gli elementi cromosomici nell'algoritmo; subendo poi trasformazioni come il crossover e mutazioni. 
 
-Brevi frammenti di schemi ritmici formano gli elementi cromosomici nell'algoritmo genetico; il modo in cui questi modelli sono concatenati in una sequenza è determinato dalla programmazione genetica. 
-Per la valutazione, i partecipanti utilizzano il sistema per produrre progressioni ritmiche che suonano come il rock n’ roll.
-
-Un algoritmo genetico è stato implementato anche da Ariza (2002) per generare ritmi che consistono in una sequenza di variazioni genetiche.
-La sua funzione fitness consiste nel calcolare la distanza tra un ritmo e un “ritmo originale” fornito dall'utente attraverso differenti misure di distanza. 
+Un algoritmo genetico è stato implementato anche da Ariza (2002), generando ritmiche derivanti da variazioni genetiche.
+La funzione fitness è consistita nel calcolare la distanza tra il ritmo generato e l'originale, fornito dall'utente, attraverso differenti misure di distanza. 
 
 \section{Algoritmo Genetico}
 
 \subsection{musica evolutiva}
 
-L'applicazione dei metodi EC ai compiti musicali ha cominciato ad emergere all'inizio degli anni '90, insieme ad altre applicazioni più tradizionali dell'EC. 
+L'applicazione dei metodi EC ai compiti musicali ha cominciato ad emergere all'inizio degli anni '90.
 
-Nell'applicare la CE alla musica ci sono una vasta gamma di aspetti da considerare, tuttavia, i tre criteri fondamentali da considerare in anticipo sono l'ambito del problema, la rappresentazione individuale e la misura dell'idoneità. 
+Ci sono tre criteri fondamentali da considerare: l'ambito del problema, la rappresentazione individuale e la misura dell'idoneità. 
 
-L’ambito problematico definisce esattamente quale tipo di “musica” desideri sviluppare; hai intenzione di creare melodie, armonizzazioni, progressioni di accordi? 
+L’ambito del problema definisce esattamente quale tipo di “musica” si desidera sviluppare; si è intenzionati di creare melodie, armonizzazioni o progressioni di accordi? 
+
 Che stile musicale desideri creare? 
-In quale formato verrà riprodotto: audio, spartiti stampati, messaggi MIDI (Musical Instrument Digital Interface)? 
+Nella ricerca è fondamentale la codifica del dominio, e quindi i limiti o lo stile musicale, entro cui l'algoritmo ricerca. 
 
-Il genoma rappresenta valori di pitch e durate. 
-La codifica del dominio, la rappresentazione e gli operatori sono tutti intrinsecamente legati a definire lo spazio – e quindi i limiti o lo stile musicale – entro cui l'algoritmo ricerca. 
+Nella rappresentazione individuale ci si chiede come rappresentare la musica: audio, spartiti stampati, messaggi MIDI (Musical Instrument Digital Interface)? 
+comunemente, per una più facile gestione dei dati, si ricorre al formato MIDI, dove il genoma contiene valori di pitch e durate. 
 
-Infine c’è la questione dell’idoneità: supponendo che due individui rappresentino brani musicali nel dominio desiderato, cosa rende uno “migliore” dell’altro? 
+Infine la questione della misura di idoneità: supponendo che due individui rappresentino brani musicali nel dominio desiderato, cosa rende uno “migliore” dell’altro? 
 
-Uno dei vantaggi dell'applicazione dell'EC in questo tipo di dominio soggettivo è che può ottimizzare verso una misura relativa di qualità o fitness. 
+Uno dei vantaggi dell'applicazione dell'EC è aggiorna continuamente una popolazione di soluzioni, piuttosto che un individuo, in modo che le relazioni tra individui possano essere inserite nel processo di ricerca. 
 
-EC aggiorna continuamente una popolazione di soluzioni, piuttosto che un individuo, in modo che la relazione tra gli individui possa essere incorporata nel processo di ricerca. 
-
-Questo viene utilizzato in numerosi studi che utilizzano l'intera popolazione finale o più individui della popolazione per formare un risultato. 
-
-Ma, anche se non ci stiamo evolvendo verso un unico obiettivo migliore, abbiamo bisogno di una qualche forma di \textbf{misura di idoneità per guidare la ricerca}. 
-Questo è uno degli aspetti più impegnativi della progettazione di tali esperimenti.
-
-Questa sezione discute numerosi studi che hanno applicato la CE a vari compiti di composizione musicale. 
-Ciascuno studio prevede l'applicazione di algoritmi genetici (GA).
+Questo aspetto è utilizzato in numerosi studi, che mostrano l'intera popolazione finale per ricercare un risultato. 
 
 \subsection{Prime applicazioni dell'EC alla musica}
 
+Horner e Goldberg furono tra i primi ad applicare un algoritmo genetico al processo di composizione musicale considerando il problema della “transizione tematica”. 
+In questo si considerava la trasformazione di una frase melodica in un'altra, ed i genomi rappresentavano la serie di transizioni necessarie. 
+La fitness-function si misurava quanto bene il modello finale corrispondeva al modello desiderato. 
+Il sistema tuttavia è stato utilizzato per creare transizioni piuttosto che creare effettivamente nuova musica. 
 
-Horner e Goldberg furono tra i primi ad applicare un GA al processo di composizione musicale considerando il “ponte tematico”. 
-In questo si considerava la trasformazione di una frase melodica in un'altra attraverso l'uso di un insieme di operazioni definito. 
-Gli individui rappresentavano la serie di transizioni da una frase alla frase desiderata. 
-Il fitness si basava su quanto bene il modello finale corrispondeva al modello desiderato. 
-In quanto tale, il sistema è stato utilizzato per creare le transizioni (sequenza di operazioni) piuttosto che per creare effettivamente la musica. 
+Indipendentemente dalla rappresentazione utilizzata, la valutazione della musica è spesso un compito soggettivo e, come tale, una misura di fitness affidabile e solida può essere difficile da definire. 
+Molti dei primi ricercatori aggirarono questo problema impiegando l'uso di un giudice umano, e tali sistemi sono noti come \textbf{Interactive EC} (IEC). 
 
- (ANN) come funzione di fitness [33]. 
- Gli autori hanno limitato il loro dominio considerando solo armonie basate su tre accordi nella tonalità di Do maggiore e creando solo melodie di quattro battute di durata. La composizione è stata poi suddivisa in “mattoni” costituiti da ritmo, melodia primaria e armonia, composti ciascuno in sequenza. 
- Per ogni blocco sequenziale è stata utilizzata una GA per generare una popolazione e una ANN è stata addestrata da esempi forniti dall'utente per giudicare i candidati idonei come funzione di fitness. 
- Gli autori hanno riconosciuto che questa combinazione di GA e ANN potrebbe produrre pseudo composizioni, 
- ma le limitazioni applicate al dominio e i tre livelli di input di addestramento da parte dell'utente hanno limitato il sistema.
- 
-Indipendentemente dalla rappresentazione utilizzata, la valutazione della musica è spesso un compito soggettivo e, come tale, una misura di fitness affidabile e solida può essere difficile da definire. Molti dei primi ricercatori aggirarono questo problema impiegando l'uso di un giudice umano come funzione di fitness; 
-tali sistemi sono noti come \textbf{Interactive EC} (IEC). 
+Una funzione di fitness basata sull’uomo era stata precedentemente utilizzata con successo nell’evoluzione delle immagini, ma gli autori hanno notato una differenza pratica: più immagini possono essere visualizzate contemporaneamente, e molto rapidamente, 
+mentre la musica è un fenomeno temporale, e quindi tutti gli individui devono essere ascoltati in sequenza, uno dopo l'altro. 
+Ciò si traduce in un costo molto elevato nell’utilizzo di un essere umano come funzione di fitness.
 
 John Biles creò il noto sistema GenJam che utilizzava un GA per evolvere gli assoli jazz. 
-GenJam ha utilizzato due popolazioni indipendenti: una per le misure e una per le frasi. 
-Gli individui nella popolazione misurata sono stati mappati su una serie di eventi MIDI; 
-gli individui nella popolazione della frase sono stati mappati su una serie di misure. 
-L’utente ha valutato queste frasi in tempo reale come “buone” o “cattive”. 
-Il sistema ha quindi utilizzato l'intera popolazione di frasi e misure per costruire un assolo jazz. 
+GenJam ha utilizzato due popolazioni indipendenti: una per le misure di fitness e una per la generazione di sequenze. 
+L’utente ha valutato queste frasi \textbf{in tempo reale} come “buone” o “cattive”. 
+Il sistema ha quindi utilizzato l'intero aggregato di frasi e misure per costruire un assolo jazz. 
 
-Una funzione di fitness basata sull’uomo era stata precedentemente utilizzata con successo nell’evoluzione delle immagini [91], ma gli autori hanno notato la differenza pratica nel fatto che più immagini possono essere visualizzate contemporaneamente – e molto rapidamente – mentre la musica è un fenomeno temporale e quindi tutti gli individui devono essere ascoltati in sequenza in tempo reale. Ciò si traduce in un costo molto elevato nell’utilizzo di un essere umano come funzione di fitness, un problema chiamato collo di bottiglia del fitness.
+In studi successivi, addestrando una ANN a fungere da funzione di fitness, eliminando così la necessità dell'ascoltatore umano.
+Tuttavia, in questo caso ha riscontrato che i risultati erano in qualche modo carenti e ha stabilito che gli esseri umani ascoltano e sperimentano la musica in modi complessi e sottili che non vengono catturati bene dai modelli statistici come le ANN. 
 
-in studi successivi addestrando una ANN a fungere da funzione di fitness, eliminando così la necessità dell'ascoltatore umano [5]. Tuttavia, in questo caso ha riscontrato che i risultati erano in qualche modo carenti e ha stabilito che gli esseri umani ascoltano e sperimentano la musica in modi complessi e sottili che non vengono catturati bene dai modelli statistici come le ANN. 
+Studi hanno fatto uso di ANN come fitness-function. 
+Gli autori hanno limitato il loro dominio, considerando solo armonie basate su tre accordi nella tonalità di Do maggiore, e creando solo melodie di quattro battute come durata. 
+La composizione è stata poi suddivisa in “mattoni” costituiti da ritmo, melodia primaria e armonia. 
+Per ogni blocco è stata utilizzato una algoritmo genetico per generare la popolazione, ed una ANN è stata addestrata, da esempi forniti dall'utente, per giudicare i genomi candidati.
+Gli autori hanno riconosciuto che questa combinazione di GA e ANN potrebbe produrre delle pseudo composizioni, 
+ma le limitazioni applicate al dominio di addestramento da parte dell'utente hanno limitato fortemente il modello.
 
-Un sistema che genera ritmi musicali utilizzando un GA interattivo è stato proposto da Horowitz [39]. 
-Questo sistema utilizzava una combinazione di metodi insieme alle preferenze dell'utente nella progettazione di una misura di fitness. 
-Sono state definite diverse funzioni obiettivo per le quali l'utente ha fornito specifiche all'inizio di un'esecuzione. L'autore ha notato che mentre l'AG può essere semplice da implementare, è la misura della fitness che è difficile da definire e che in definitiva determina la musicalità dell'output. Un sistema simile a GP è stato utilizzato per la generazione automatica di musica orientata allo stile in un primo sistema proposto da Laine e Kuuskankare [52]. In questo sistema Lisp, le linee melodiche venivano approssimate mediante semplici funzioni matematiche e l'idoneità veniva misurata come confronto nota per nota con una melodia di input target. Gli autori hanno scoperto che la loro sfida più grande era trovare funzioni sufficientemente complesse da rappresentare l’intera serie temporale della musica.
+Durante gli anni ’90 molti professionisti hanno applicato l’EC ad aspetti della generazione musicale, ma nessun metodo è risultato ideale rispetto ad altri. 
 
-Il problema della valutazione del lavoro degli “artisti costruiti” è stato considerato a lungo a metà degli anni ’90 da Spector e Alpern [92]. In questo articolo gli autori sostenevano che a quel tempo la comunità dell’IA era preoccupata del rigore e degli standard in tali sistemi e molti2 chiedevano l’uso di esempi standard e più criteri per la valutazione. Rifiutavano i metodi di valutazione precedentemente utilizzati basati sul giudizio umano o su criteri formalizzati e proponevano invece che i criteri “giusti” non fossero strettamente necessari per tali giudizi; una serie di criteri era sufficiente per la decisione se era noto che il sistema era in grado di conformarsi a una determinata gamma di criteri. 
-
-Una rete neurale Adaptive Resonant Theory (ART) è stata utilizzata come misura di fitness in un GA applicato alla composizione ritmica musicale da Burton e Vladimirova. La rete ART ha utilizzato l’apprendimento non supervisionato per raggruppare modelli simili in base a una determinata vigilanza. 
-Sono stati forniti parametri iniziali come il tipo di ritmo, i tempi e l'indicazione del tempo mentre la rappresentazione consisteva in una matrice binaria di dati. Il fitness si basava sulla somiglianza del ritmo prodotto con un cluster di pattern ritmici appropriati. Gli autori hanno concluso che la rete ART possedeva un vantaggio rispetto ad altre reti neurali in quanto fungeva da idoneità per un GA poiché avevano la capacità di aggiungere nuove classificazioni quando i cluster esistenti non potevano rappresentare un dato individuo.
-
-Durante gli anni ’90 molti professionisti hanno applicato l’EC ad aspetti della generazione musicale, ma nessun metodo ideale è emerso come la scelta migliore. Burton e Vladimirova hanno offerto una panoramica completa delle applicazioni della CE alla musica in questo periodo [14]. Hanno determinato che le tecniche GP avevano generalmente più successo delle GA nei compiti compositivi, grazie alla loro capacità di lavorare in uno spazio meno limitato.
-
-Le misure di fitness basate su un corpus musicale o su un insieme di regole musicali possono nuovamente soffrire di pregiudizi. Gli esperimenti che utilizzano un corpus musicale per ricavare una misura di fitness basata sul genere saranno sempre limitati alla creazione di musica in uno stile simile al corpus dato, limitando così il potenziale creativo del sistema. Numerosi sistemi utilizzavano funzioni di fitness basate su misure musicali, tramite regole armoniche o misure statistiche. 
-
-Affinché tale funzione di fitness indichi la vera creatività musicale, tuttavia, dovrebbero essere fortemente giustificate. Tali misure guidano l’evoluzione, ma indipendentemente da quanto coinvolta o sfaccettata sia una data misura di fitness, è sicuramente impossibile dire che questa sia la misura definitiva della musica.
+Le misure di fitness basate su un corpus musicale o su un insieme di regole musicali possono soffrire di pregiudizi. 
+Gli esperimenti che utilizzano un corpus musicale per ricavare una misura di fitness saranno sempre limitati dal dominio scelto, limitando così il potenziale creativo del sistema. 
+Tali misure guidano l’evoluzione, ma indipendentemente da quanto coinvolta o sfaccettata sia una data misura di fitness, è sicuramente \textbf{impossibile dire che questa sia la misura definitiva della musica}.
 
 \section{L-System}
 
-Per prima cosa, sperimentiamo con i L-System esistenti che producono “piante” dall’aspetto gradevole, e proviamo a scoprirne gradevoli interpretazioni musicali.
+Gli L-system (o Lindenmayer system) sono un tipo di sistema formale utilizzato principalmente per modellare la crescita di piante e altri organismi. 
+Sono stati introdotti da Aristid Lindenmayer nel 1968 e sono composti da un alfabeto di simboli che, usati come insieme di regole di produzione, vengono impiegati per generare stringhe, a loro volta contenenti altri simboli, applicando dunque un approccio ricorsivo.
+È necessario un assioma (o stringa iniziale) da cui iniziare, e meccanismi per interpretare le stringhe generate come strutture geometriche o altre forme di output.
+
+Nella generazione musicale, gli L-system possono essere usati per creare strutture musicali complesse e organizzate. Ecco come:
+
+Alfabeto: I simboli dell'alfabeto possono rappresentare note musicali, durate, dinamiche, articolazioni, e altri elementi musicali.
+Assioma: La stringa iniziale può essere una sequenza di note o eventi musicali.
+Regole di produzione: Le regole descrivono come trasformare ogni simbolo in una nuova sequenza di simboli musicali.
+
+Esempio di applicazione
+Immaginiamo un semplice L-system musicale:
+
+Alfabeto: {A, B}
+Assioma: A
+Regole di produzione: 
+  A → AB
+  B → A
+
+In questo esempio:
+1. Partiamo dall'assioma "A".
+2. Applichiamo le regole:
+   - A diventa AB.
+   - AB diventa ABA.
+   - ABA diventa ABAAB.
+   e così via.
+
+Ora, mappiamo i simboli alle note musicali:
+- A = Do
+- B = Re
+
+La sequenza generata può essere interpretata come una melodia: Do, Do-Re, Do-Re-Do, Do-Re-Do-Do-Re, e così via.
+
+Gli L-system così permettono di generare pattern musicali ricorsivi e auto-simili che possono essere sia prevedibili che ma anche variabili. 
+
+Nel paper Growing music, Peter Worth e Susan Stepney, hanno sperimentato in modo più approfondito questo sistema.
 
 La musica è essenzialmente sequenziale nel tempo: non vogliamo un'interpretazione ramificata nel tempo. 
-Definiamo un rendering sequenziale: interpretare [/] come "stato corrente push/pop eccetto l'ora"; 
+Definiamo un rendering sequenziale: interpretare  come "stato corrente push/pop eccetto l'ora"; 
 F come “suona una nota di durata 1”; 
 una sequenza di n Fa come “suona una singola nota di durata n”. 
 Quindi una nota viene interrotta da un cambiamento di altezza, da un nuovo ramo o dalla desinenza del ramo corrente. 
 La resa sequenziale del sistema L "a foglia" di quarta generazione è ritmicamente interessante e ha senso melodicamente:
-
 
 % Inserimento di un'immagine
 \begin{figure}[h!]
