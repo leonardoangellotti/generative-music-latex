@@ -86,16 +86,14 @@
 
 Sebbene Stravinsky sia famoso per aver affermato: “i buoni compositori prendono in prestito e i grandi compositori rubano”, 
 
-C’è una grande differenza tra “impossibile” e “difficile da immaginare”. Il primo riguarda questo; la seconda riguarda te!
+C’è una grande differenza tra “impossibile” e “difficile da immaginare”. 
+Il primo riguarda il problema; il secondo riguarda te.
 
-"C'è un'idea, la base di una struttura interna, espansa e divisa in forme diverse o gruppi di suoni che cambiano costantemente in forma, direzione e velocità, attratti e respinti da varie forze. La forma del lavoro è una conseguenza di questa interazione."
-- Edgard Varèse, (1939)
+La parola 'Algoritmo' deriva dai concetti di algebra e aritmetica dei matematici del IX secolo d.C., dalle culture arabe e greche a quelle indiane. 
+La Musica Algoritmica ha una storia altrettanto lunga nell'era pre-informatica, dai lavori 'processuali' di George Brecht (Drip Music, 1962), Stockhausen (Setz die Segel zur Sonn, 1970), Xenakis (Metastaseis, 1971) fino a George Lewis (Voyager), ecc.
 
-La parola 'Algoritmo' deriva dai concetti di algebra e aritmetica dei matematici del IX secolo d.C., dalle culture arabe e greche a quelle indiane. La Musica Algoritmica ha una storia altrettanto lunga nell'era pre-informatica, dai lavori 'processuali' di George Brecht (Drip Music, 1962), Stockhausen (Setz die Segel zur Sonn, 1970), Xenakis (Metastaseis, 1971) fino a George Lewis (Voyager), ecc.
-
-Gli algoritmi di Intelligenza Artificiale (AI) sono una delle tecnologie più ampiamente utilizzate e potenti del ventunesimo secolo. Sebbene la definizione esatta di AI si sia costantemente evoluta dagli anni '50 di Alan Turing alle attuali architetture di Deep Learning come Alpha Go, un aumento dell'accessibilità ha portato a un'assimilazione più rapida di una vasta gamma di algoritmi AI nella nostra cultura. 
-Nei campi creativi, l'AI viene utilizzata per generare sceneggiature di film (Spotlight di Ross Goodwin), ricette di cucina (Chef Watson di IBM), poesie (http://botpoet.com/), arte visiva (Portrait of Edmond Belamy, venduto per $432.500) ecc. 
-C'è anche un'ondata di produzione massiva di opere d'arte AI utilizzando dataset open access e basi di codice open source come le Generative Adversarial Networks (GAN).
+Gli algoritmi di Intelligenza Artificiale (AI) sono una delle tecnologie più ampiamente utilizzate e potenti del ventunesimo secolo. Sebbene la definizione esatta di AI si sia costantemente evoluta dagli anni '50 di Alan Turing alle attuali architetture di Deep Learning come Alpha Go, 
+un aumento dell'accessibilità ha portato a un'assimilazione più rapida di una vasta gamma di algoritmi AI nella nostra cultura. 
 
 Tali modelli AI per attività creative sono attualmente agli inizi e seguono quasi esclusivamente il modello di imitare il dataset su cui sono addestrati. 
 
@@ -129,17 +127,12 @@ Questo genere di modelli possono quindi essere utilizzati per esplorare scelte c
 Un artista dotato, d'altra parte, potrebbe ascoltare la stessa composizione casuale e uscirne con un'idea completamente nuova, una in gado di innescare una nuova forma di melodia."
 - Margaret Boden (2016, intervista con IBM)
 
-\section{Motivazioni dello studio}
+Struttura della tesi.
 
-sono bello
-
-\section{Obiettivi della tesi}
-
-simpatico 
-
-\section{Struttura della tesi}
-
-intelligente
+Nella testi vengono riportate inizialmente le nozioni di base utili alla comprensione degli argomenti trattati.
+Vengono poi discussi i principali metodi di generazione musicale correnti, e gli studi associati.
+Infine viene presentato un algoritmo genetico, per la generazione di una sequenza musicale, discutendone i risultati conseguiti.
+Nelle conclusioni vengono raccolti i traguardi raggiunti, e le limitazioni da superare, nella costruzione algoritmica di nuovi modelli.
 
 \chapter{Nozioni di Base}
 
@@ -320,76 +313,30 @@ Gli L-system così permettono di generare pattern musicali ricorsivi e auto-simi
 
 Nel paper Growing music, Peter Worth e Susan Stepney, hanno sperimentato in modo più approfondito questo sistema.
 
-La musica è essenzialmente sequenziale nel tempo: non vogliamo un'interpretazione ramificata nel tempo. 
-Definiamo un rendering sequenziale: interpretare  come "stato corrente push/pop eccetto l'ora"; 
-F come “suona una nota di durata 1”; 
-una sequenza di n Fa come “suona una singola nota di durata n”. 
-Quindi una nota viene interrotta da un cambiamento di altezza, da un nuovo ramo o dalla desinenza del ramo corrente. 
-La resa sequenziale del sistema L "a foglia" di quarta generazione è ritmicamente interessante e ha senso melodicamente:
+Gli L-System permettono una maggiore sensibilità per il "contesto", cioè il rapporto tra le note lungo la sequenza, 
+facendo crescere conseguentemente la pianta in modo diverso in base a gli elementi nell'intorno.
+Questo potrebbe essere utile in musica, quando ad esempio il pezzo generato potrebbe raggiungere un climax o interrompersi bruscamente. 
+Per far ciò che questo avvenga, la regola di produzione per un L-System viene applicata al simbolo solo se compare in uno specifico
+contesto (tra altri simboli). 
+La notazione A < B > C indica che agisce se la stringa B è presente con A alla sinistra e C a destra.
+Viene considerato il seguente L-System "sensibile al contesto":
 
 % Inserimento di un'immagine
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine1} 
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/L-system} 
     \caption{Descrizione dell'immagine}
     \label{fig:immagine}
 \end{figure}
 
-Sebbene il rendering sequenziale produca risultati piacevoli, può essere migliorato per catturare una gerarchia schenkeriana di sfondo/piano intermedio/primo piano. 
-Jonas [4] usa il termine “la fioritura della diminuzione” nel descrivere la forma della sonata. 
-Ciò suggerisce un'interpretazione in cui si “sentono” solo le estremità della pianta (foglie, fiori). La zona centrale e lo sfondo (il fusto e i rami) non vengono effettivamente percepiti
-Analisi schenkeriana: danno solo la struttura da cui appare il primo piano.
-Nella nostra rappresentazione Schenkeriana, interpreta F come 'aumenta la durata della nota di una nota da un quarto', ± come 'muovi su/giù una nota nella scala scelta', [come 'premi lo stato corrente e imposta la durata della nota su 0', ] come ' suona la nota in base allo stato corrente e pop' e X come null.
-In questa versione, la “foglia” ora suona come
+Questa melodia, e altre derivate in modo simile, suonano abbastanza “casuali”; ricordano un assolo jazz. 
+Non rientrano bene nella cadenza 4/4 in una partitura perché molte delle note hanno una durata irregolare. 
+Tuttavia la melodia ritorna sempre a un motivo o una frase principale, 
+a volte trasposto o suonato in un punto diverso della battuta. 
+Ad esempio, nella partitura sopra, una serie di note nella prima battuta è ripetuta nella nona battuta, ma in un modo insolito (trasposto in avanti per un quarto di tempo) e aumentate di 2 semitoni. 
+Questo tipo di simmetria rispecchia la musica normalmente composta o improvvisata, ed è dovuta dal tipo di struttura ricorsiva ad albero.
 
-% Inserimento di un'immagine
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine2} 
-    \caption{Descrizione dell'immagine}
-    \label{fig:immagine}
-\end{figure}
-
-Nonostante non sembri rientrare in una struttura 4/4, questa melodia suona molto musicale, con una melodia piuttosto caratteristica, anche con un metronomo che batte in 4/4 dietro di essa.
-
-Le piante sono tutte diverse: i sistemi L stocastici vengono utilizzati per generare piante dalla stessa
-“famiglia” ma con dettagli diversi. Allo stesso modo una resa musicale dovrebbe generare a
-varietà di brani nello stesso “stile”. Consideriamo il seguente semplice sistema L stocastico
-(dove il pedice sulla freccia indica la probabilità che venga scelta la regola).
-
-ω: FA 
-p1: FA →1/3 FA[+F]FA[-FA]FA 
-p2: FA →1/3 FA[+F]FA 
-p3: FA →1/3 FA[-FA]FA
-
-Le rappresentazioni schenkeriane di tre diverse produzioni di questo L-System stocastico (3 iterazioni di profondità) sono:
-
-% Inserimento di un'immagine
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/immagine3} 
-    \caption{Descrizione dell'immagine}
-    \label{fig:immagine}
-\end{figure}
-
-Sembrano "casuali" ma ben strutturati e non eccessivamente complessi (come ci si aspetterebbe dalla natura abbastanza semplice delle regole). 
-Suonano "simili" tra loro, ma abbastanza diversi da poter essere usati magari in punti diversi dello stesso brano musicale, o quando combinato.
-
-5 Conclusioni e ulteriori lavori
-Presentiamo due interpretazioni musicali che producono suoni piacevoli dai classici sistemi L "vegetali". 
-Il rendering sequenziale è relativamente ingenuo, ma funziona bene. 
-La resa schenkeriana si ispira ad un'analogia tra i concetti della teoria musicale di primo/medio/sottofondo e le componenti di una pianta, e produce brani molto piacevoli.
-Questi esempi sono stati valutati solo fino a una profondità di 3 o 4 iterazioni. 
-Sembra che ci siano informazioni sufficienti in un tipico sistema L per creare solo una breve melodia ed essere comunque interessante. 
-Nelle derivazioni più lunghe, le melodie cominciano a diventare noiose: lo stesso pezzo di musica si ripete continuamente, anche se normalmente trasposto in qualche modo. 
-I sistemi L stocastici possono aiutare, imponendo un qualche tipo di struttura sulla partitura ma dando melodie varie. 
-I sistemi L sensibili al contesto sembrano offrire il miglior potenziale per creare brani musicali più lunghi, poiché parti identiche della corda in punti diversi possono crescere in modo diverso, quindi il pezzo può effettivamente “andare da qualche parte” anziché ripetere lo stesso schema.
-Partire da grammatiche musicali e produrre da esse sistemi in L funziona bene musicalmente. 
-Tuttavia, il tentativo di ottenere una grafica contemporaneamente gradevole partendo da una grammatica musicale ha avuto meno successo: la ramificazione necessaria alla grafica non è parte intrinseca della teoria musicale esistente, e non è chiaro come inserirla. Altro lavoro sullo schenkeriano la resa dal punto di vista della teoria musicale può essere preziosa qui.
-L-System più potenti, come gli L-System parametrici, potrebbero essere utilizzati per generare musica più complessa e realistica. Una possibilità interessante è l'uso di sistemi L con input ambientali [8]. 
-Questi sono stati sviluppati per modellare gli effetti ambientali sulla crescita delle piante (sole, ombra, ecc.), ma potrebbero essere applicabili alla generazione musicale, per consentire a due L-System di far crescere insieme la loro musica come diversi “strumenti” per reagire l’uno all’altro.
-
-\chapter{Algoritmo genetico}
+\chapter{progetto di musica genetica}
 
 Viene ora introdotto un progetto di algoritmo genetico utile ad esemplificare fin quanto detto.
 
@@ -508,26 +455,26 @@ Di seguito un dizionario in cui troviamo come chiave la distanza tra la nota cor
 
 Ecco un'analisi della tabella:
 
-- **Intervalli consonanti perfetti** (0, 7, 12, 19, 24 semitoni): Questi intervalli, che corrispondono alle ottave e quinte perfette (e le loro ripetizioni all'ottava superiore), hanno punteggi molto alti (50 o 10), indicando che sono molto armoniosi.
+- Intervalli consonanti perfetti (0, 7, 12, 19, 24 semitoni): Questi intervalli, che corrispondono alle ottave e quinte perfette (e le loro ripetizioni all'ottava superiore), hanno punteggi molto alti (50 o 10), indicando che sono molto armoniosi.
     - 0 (Unisono): -20 (interessante che l'unisono sia visto come negativo in questo sistema).
     - 7 (Quinta giusta): 50
     - 12 (Ottava giusta): 10
     - 19 (Unisono all'ottava superiore): -10
     - 24 (Due ottave giuste): 10
 
-- **Intervalli consonanti maggiori** (4, 9, 16, 21 semitoni): Questi includono la terza maggiore e la sesta maggiore, che sono generalmente considerati molto armoniosi.
+- Intervalli consonanti maggiori (4, 9, 16, 21 semitoni): Questi includono la terza maggiore e la sesta maggiore, che sono generalmente considerati molto armoniosi.
     - 4 (Terza maggiore): 50
     - 9 (Sesta maggiore): 40
     - 16 (Decima, terza maggiore all'ottava superiore): 50
     - 21 (Tredicesima, sesta maggiore all'ottava superiore): 10
 
-- **Intervalli consonanti minori** (3, 8, 17, 22 semitoni): Questi includono la terza minore e la sesta minore.
+- Intervalli consonanti minori (3, 8, 17, 22 semitoni): Questi includono la terza minore e la sesta minore.
     - 3 (Terza minore): 50
     - 8 (Sesta minore): 10
     - 17 (Decima minore): 50
     - 22 (Tredicesima minore): 40
 
-- **Intervalli dissonanti** (1, 2, 6, 10, 11, 13, 23 semitoni): Questi includono la seconda minore, la settima minore e la settima maggiore, che sono considerati meno armoniosi o dissonanti.
+- Intervalli dissonanti (1, 2, 6, 10, 11, 13, 23 semitoni): Questi includono la seconda minore, la settima minore e la settima maggiore, che sono considerati meno armoniosi o dissonanti.
     - 1 (Seconda minore): 5
     - 2 (Seconda maggiore): 5
     - 6 (Tritono): -10
@@ -549,24 +496,40 @@ Se le note sono un'ottava più una seconda (o una nona) di distanza l'una dall'a
 Questo premia movimenti specifici tra ottave con piccole differenze, che potrebbero essere considerati particolarmente musicali.
 Il codice cerca dunque di bilanciare l'armonia (basata sugli intervalli predefiniti) e la fluidità (basata sulla distanza tra note consecutive) in una sequenza musicale, con vari meccanismi per favorire o penalizzare certi tipi di movimenti tra le note.
 
+\begin{lstlisting}[language=Python]
+
 if note is None and prevNote is None:
     consecutiveRests += 1
 
+\end{lstlisting}
+
 Se entrambe note e prevNote sono None, significa che si è verificata una pausa consecutiva. Incrementa il contatore consecutiveRests.
+
+\begin{lstlisting}[language=Python]
 
 if numRests * 10 <= len(flatten(genome)):
     restScore += 10
 
+\end{lstlisting}
+
 Se il numero di pause (numRests) moltiplicato per 10 è inferiore o uguale alla lunghezza della sequenza musicale piatta (flatten(genome)), aumenta il punteggio ritmico (restScore) di 10. 
 Questo premia una quantità ragionevole di pause nel contesto della lunghezza totale del genoma musicale, suggerendo che alcune pause sono considerate musicalmente desiderabili.
+
+\begin{lstlisting}[language=Python]
 
 if consecutiveRests:
     restScore -= (consecutiveRests * 10)
 
+\end{lstlisting}
+
 Se ci sono pause consecutive (consecutiveRests > 0), penalizza il punteggio ritmico diminuendo restScore di consecutiveRests * 10. 
 Questo penalizza pesantemente le pause consecutive, suggerendo che una lunga serie di pause è considerata indesiderabile dal punto di vista ritmico.
 
+\begin{lstlisting}[language=Python]
+
 fitness_weight_genome = (smoothnessScore * smoothnessWeight) + (restScore * restWeight) + (harmonyScore * harmonyWeight)
+
+\end{lstlisting}
 
 Il punteggio di fitness finale (fitness_weight_genome) è calcolato come la somma ponderata dei punteggi componenti.
 Ogni punteggio componente (smoothnessScore, restScore, harmonyScore) viene moltiplicato per il rispettivo peso (smoothnessWeight, restWeight, harmonyWeight).
@@ -584,12 +547,12 @@ Sono riportati le opzioni scelte per una generazione musicale esemplificativa.
 % Inserimento di un'immagine
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/setting} 
+    \includegraphics[width=0.5\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/setting} 
     \caption{Descrizione dell'immagine}
     \label{fig:immagine}
 \end{figure}
 
-al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti dalla fitness function, per i genomi di ogni popolazione.
+Al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti dalla fitness function, per i genomi di ogni popolazione.
 
 % Inserimento di un'immagine
 \begin{figure}[h!]
@@ -641,7 +604,7 @@ Sue questa vengono applicate le seguenti opzioni
 % Inserimento di un'immagine
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/ableton_settings} 
+    \includegraphics[width=0.6\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/ableton_settings} 
     \caption{Descrizione dell'immagine}
     \label{fig:immagine}
 \end{figure}
@@ -671,32 +634,25 @@ Si possono sperimentare ulteriori modifiche, cambiando i pesi (smoothnessWeight,
 
 \chapter{Conclusioni}
 
-Negli ultimi decenni, la ricerca sulla generazione musicale ha compiuto enormi progressi nella generazione di aspetti ben definiti della musica come la melodia, l’armonia, il ritmo e il timbro. 
+Negli ultimi decenni, la ricerca sulla generazione musicale ha compiuto enormi progressi nella generazione di aspetti ben definiti della musica, come la melodia, l’armonia, il ritmo e il timbro. 
+
 Modelli statistici all’avanguardia, tecniche di ottimizzazione avanzate, database digitali più grandi su cui addestrare i modelli e l’aumento della potenza di calcolo hanno portato alla produzione di sistemi migliori. 
 
 Perché allora non utilizziamo sistemi di generazione musicale nella nostra vita quotidiana? 
 
 L’indagine di cui sopra mostra che rimane un’importante sfida generale: quella di creare musica con una struttura a lungo termine.
 
-La struttura a lungo termine, che spesso assume la forma di temi, motivi e schemi ricorrenti, è una parte essenziale di qualsiasi esperienza di ascolto musicale. In secondo luogo, gli sviluppi nel campo del deep learning mostrano che le reti neurali possono incorporare strutture di memoria durante l'apprendimento di dati sequenziali. 
+La struttura a lungo termine, che spesso assume la forma di temi, motivi e schemi ricorrenti, è una parte essenziale di qualsiasi esperienza di ascolto musicale.
 
 Per rendere i sistemi musicali generati dal computer parte della nostra vita quotidiana, c’è bisogno di sistemi più “narrativi", in grado cioè di creare un inizio, sviluppo e conclusione nella musica. 
 
-Sebbene ci siano recenti tentativi di generare musica con tensione [Farbood et al. 2007; Herremans e Chew 2016a], che sia applicata a colonne per videogiochi o che accompagnano film, c’è ancora margine di miglioramento per comprendere meglio la connessione tra musica ed emozione, 
-in modo da integrare questa relazione cruciale nei sistemi di generazione musicale. 
+Sebbene ci siano recenti tentativi di generare musica con tensione [Farbood et al. 2007; Herremans e Chew 2016a], che sia applicata a colonne per videogiochi o che accompagnano film, c’è ancora margine di miglioramento per comprendere meglio la connessione tra musica ed emozione.
 
-Ciò potrebbe portare ad applicazioni pratiche nella vita reale, come la generazione di musica in tempo reale.
+Sebbene le tecniche di apprendimento automatico possano essere estremamente efficaci, di solito richiedono grandi quantità di dati. 
 
-Sebbene le tecniche di apprendimento automatico possano essere estremamente utili in compiti come la già citata modellazione delle emozioni nella musica, di solito richiedono grandi quantità di dati. 
-
-Pertanto, il settore ha riscontrato una continua necessità di ulteriori dati. 
-Esiste un potenziale reale affinché il lavoro futuro si sposti verso sistemi intelligenti che non richiedano abbondanti quantità di dati, capaci di un ragionamento innato rispecchiando meglio il funzionamento della mente umana. 
-Ciò risolverebbe anche la continua sfida di trovare un equilibrio tra la rigenerazione della musica esistente e i frammenti di questa senza ricadere nel plagio.
-
-Una delle caratteristiche della musica generata dal computer che viene spesso trascurata è la difficoltà di esecuzione. 
-Mentre un'applicazione potrebbe essere quella di adattare la nuova musica a un certo livello di abilità del musicista, esiste anche la possibilità di utilizzare la difficoltà di esecuzione rilevata/calcolata come misura di valutazione per la musica generata.
-
-Rimane difficile, tuttavia, confrontare oggettivamente sistemi diversi poiché di solito accettano parametri di input diversi, generano aspetti musicali diversi, sono addestrati su stili diversi o non hanno esempi audio disponibili per il lettore. Inoltre, negli esperimenti di ascolto, l’effetto di mera esposizione [Zajonc 1968] farà sì che gli ascoltatori preferiscano i brani esistenti rispetto a quelli nuovi, poiché la familiarità provoca un maggiore godimento.
+Esiste un potenziale reale affinché il lavoro futuro si sposti verso sistemi intelligenti che non richiedano abbondanti quantità di tracce audio, o sequenze musicali, 
+capaci cioè di un ragionamento innato, rispecchiando meglio il funzionamento della mente umana. 
+Ciò risolverebbe anche la continua sfida di trovare un equilibrio tra la rigenerazione della musica esistente, o frammenti di questa senza ricadere nel plagio.
 
 \appendix
 \chapter{Appendice A}
