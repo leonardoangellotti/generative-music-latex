@@ -136,7 +136,154 @@ Nelle conclusioni vengono raccolti i traguardi raggiunti, e le limitazioni da su
 
 \chapter{Nozioni di Base}
 
-il magico mondo della musica
+\section{nozioni algoritmiche}
+
+\subsection{fitness-function}
+Misura di Prestazione: La fitness function fornisce un punteggio numerico che rappresenta l'efficacia di una soluzione candidata. Questo punteggio guida l'algoritmo nel processo di selezione e ottimizzazione.
+Ottimizzazione: L'obiettivo è massimizzare o minimizzare la fitness function, a seconda del problema. Ad esempio, in un problema di massimizzazione, una soluzione con un punteggio di fitness più alto è preferita, mentre in un problema di minimizzazione, si preferiscono punteggi più bassi.
+Selezione delle Soluzioni: Negli algoritmi genetici, le soluzioni con punteggi di fitness più alti hanno una probabilità maggiore di essere selezionate per la riproduzione e la generazione di nuove soluzioni (prole).
+
+\subsection{modello markoviano}
+
+Proprietà di Markov: La probabilità di transizione a un nuovo stato dipende esclusivamente dallo stato corrente, senza tener conto degli stati passati. Formalmente, questa proprietà si esprime come:
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/markov1} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+dove Xi rappresenta lo stato del sistema al tempo i.
+
+Stati e Transizioni: Il modello è costituito da un insieme finito o numerabile di stati. Le transizioni tra stati sono governate da probabilità di transizione che possono essere rappresentate in una matrice di transizione.
+
+Matrice di Transizione: Per una catena di Markov con N stati, la matrice di transizione P è una matrice N×N dove l'elemento Pij rappresenta la probabilità di transizione dallo stato i allo stato j. Le righe della matrice devono sommare a 1:
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/markov2} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+Stazionarietà: Un modello markoviano può raggiungere una distribuzione stazionaria, dove le probabilità di occupazione degli stati non cambiano più nel tempo. Questo accade quando il sistema ha raggiunto un equilibrio.
+
+\subsection{artificial neural network}
+
+Forward Propagation: Durante la propagazione in avanti, gli input vengono trasmessi attraverso i vari strati della rete, moltiplicando i valori degli input per i pesi delle connessioni e applicando la funzione di attivazione. Questo processo continua fino a raggiungere lo strato di output, producendo una previsione.
+
+Backward Propagation (Backpropagation): Durante l'addestramento, l'errore tra la previsione e il valore reale viene calcolato e retropropagato attraverso la rete per aggiornare i pesi. L'algoritmo di backpropagation utilizza il calcolo del gradiente per minimizzare l'errore, adattando i pesi in modo iterativo.
+
+\section{nozioni musicali}
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/music phrase} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+\subsectioni{Caratteristiche di una Nota Musicale}
+
+Altezza (Pitch):
+
+L'altezza di una nota è la frequenza del suono che produce, determinando quanto sia acuto o grave.
+Le note sono rappresentate su un pentagramma, dove la posizione verticale della nota indica la sua altezza. 
+Ad esempio, le note su righe o spazi più alti sul pentagramma hanno altezze maggiori.
+Le note musicali fondamentali nell'ottava sono Do, Re, Mi, Fa, Sol, La, Si (o C, D, E, F, G, A, B nel sistema anglosassone).
+
+Durata:
+
+La durata di una nota indica per quanto tempo viene suonata. Di seguito un'immagine esemplificativa:
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/note duration} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+Intensità (Velocity):
+
+L'intensità di una nota si riferisce a quanto forte o piano viene suonata.
+Sono indicazioni come "p" (piano) per suonare piano, "f" (forte) per suonare forte, "mf" (mezzo forte), "mp" (mezzo piano), e altre variazioni come crescendo (aumentando l'intensità) e decrescendo (diminuendo l'intensità).
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/dynamics} 
+    \caption{Descrizione dell'immagine}
+    \label{fig:immagine}
+\end{figure}
+
+\section{scala armonica}
+
+La scala maggiore è una delle scale diatoniche più comuni e ha un suono generalmente percepito come "felice" o "luminosa". È costituita da sette note più l'ottava che ripete la prima nota, un'ottava più alta.
+
+La scala maggiore segue uno schema specifico di toni (T) e semitoni (S). Lo schema è:
+T - T - S - T - T - T - S
+Ad esempio, la scala di Do maggiore (C maggiore) è:
+
+Do (C) - Re (D) - Mi (E) - Fa (F) - Sol (G) - La (A) - Si (B) - Do (C)
+
+La scala minore ha un suono generalmente percepito come "triste" o "scuro". Esistono tre varianti principali della scala minore: naturale, armonica e melodica.
+
+Segue uno schema diverso rispetto alla scala maggiore:
+T - S - T - T - S - T - T
+Ad esempio, la scala di La minore naturale (A minore naturale) è:
+
+La (A) - Si (B) - Do (C) - Re (D) - Mi (E) - Fa (F) - Sol (G) - La (A)
+
+\section{melodia}
+
+Una melodia è una sequenza di note musicali che è percepita come un'unità singola e coerente. 
+Essa è una componente fondamentale della musica, essendo spesso la parte più riconoscibile e memorabile di un brano musicale. 
+La melodia può essere cantata, suonata su uno strumento o realizzata in una combinazione di voci e strumenti.
+
+Una melodia è composta da una serie di note che vengono suonate in successione. Queste note possono variare in altezza (pitch), durata (rhythm), intensità (velocity).
+ 
+Il contorno melodico si riferisce al profilo delle altezze delle note, ovvero come le altezze delle note salgono e scendono nel corso della melodia. Questo può includere salti, scali, ripetizioni e altre variazioni.
+
+Una melodia è spesso divisa in frasi musicali, che sono come le frasi di un discorso. Ogni frase ha un inizio, uno sviluppo e una conclusione.
+
+Un motivo è una piccola sequenza di note che ha significato tematico e viene spesso ripetuta e sviluppata nel corso di un brano. Un tema è una melodia più lunga e complessa che può fungere da base per l'intero pezzo.
+
+La melodia è spesso basata su una scala musicale, come una scala maggiore o minore, che fornisce un quadro armonico e tonale.
+
+\section{accordi}
+
+Gli accordi sono combinazioni di tre o più note suonate simultaneamente o in sequenza arpeggiata, che creano un'armonia. Gli accordi sono fondamentali nella musica, fornendo la struttura armonica su cui si basano melodie e progressioni. 
+Possono essere maggiori o minori, in base alla distanza tra le note.
+
+Un problema fondamentale nella generazione di musica tramite algoritmi, è la scelta nella sequenza di una progressione di accordi, che descrive lo stile musicale di una canzone e la sua "orecchiabilità".
+
+Esempi di Progressioni di Accordi usati comunemente in musica.
+Progressione I-IV-V-I in Do Maggiore:
+Accordi: Do (C) - Fa (F) - Sol (G) - Do (C)
+Uso comune nelle canzoni pop e rock (il "giro di "Do)
+
+Progressione ii-V-I in Jazz:
+Accordi in Do Maggiore: Re minore settima (Dm7) - Sol settima (G7) - Do maggiore settima (Cmaj7)
+Molto usata nel jazz per creare risoluzioni armoniche sofisticate.
+
+\section{File MIDI}
+
+Un file MIDI (Musical Instrument Digital Interface) è un formato di file standardizzato utilizzato per rappresentare informazioni musicali in forma digitale. 
+Invece di memorizzare il suono effettivo come fanno i file audio, un file MIDI memorizza i dati relativi alle note, agli strumenti, alle dinamiche e ad altre istruzioni musicali che possono essere riprodotte da dispositivi elettronici compatibili con il MIDI, 
+come sintetizzatori, sequencer, computer e software di notazione musicale.
+
+% Inserimento di un'immagine
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/midi} 
+    \caption{esempio di un file midi importato in Ableton}
+    \label{fig:immagine}
+\end{figure}
 
 \chapter{Metodi di generazione}
 
@@ -151,13 +298,13 @@ Tale funzione di fitness è spesso basata sulla somiglianza con un determinato c
 
 Caratteristiche esemplificative includono la tonalità, gli intervalli e durate.
 
-I primi tentativi di generare melodie con i computer risalgono al 1956, quando Pinkerton costruì un \textbf{modello markoviano di primo ordine} , il “Banal Tune-Maker”, basato su un corpus di 39 semplici filastrocche,
+I primi tentativi di generare melodie con i computer risalgono al 1956, quando Pinkerton costruì un \textbf{modello markoviano} , il “Banal Tune-Maker”, basato su un corpus di 39 semplici filastrocche,
 tuttavia il modello tendeva ad essere ripetitivo.
 
-Un altro problema nell'uso delle catene di Markov risiedeva nel plagio, le melodie infatti tendevano ad essere toppo simili a quelle originali.
+Un altro problema nell'uso delle catene di Markov risiedeva nel plagio, le melodie infatti tendevano ad essere troppo simili a quelle originali.
 
 Il compromesso tra la composizione di brani simili a lavori esistenti, contro la necessità di doverne creare di nuovi e creativi, è difficile da ricercare. 
-Stravinsky, celebre compositore Russo, ha affermato: “i buoni compositori copiano, i grandi compositori rubano”.
+si ricorda una citazione di Stravinsky, celebre compositore Russo: “i buoni compositori copiano, i grandi compositori rubano”.
 Riferendosi a quest'idea tuttavia le macchine non hanno ancora la capacità di distinguere tra il furto astuto e il plagio totale.
 
 Con quest'intuizione è stata poi introdotta la variabile MaxOrder, ad indicare il massimo ordine di sottosequenze consentito in una sequenza generata, per limitare le ripetizioni eccessive di materiale.
@@ -170,11 +317,7 @@ Per risolvere questo problema di minimizzazione è stato utilizzato un processo 
 
 Comporre una melodia monofonica può sembrare un compito semplice rispetto alla partitura di un'intera sinfonia. 
 Tuttavia, le melodie sono più che semplici movimenti tra le note, normalmente possiedono una \textbf{struttura a lungo termine}. 
-Negli ultimi anni, alcune ricerche hanno dimostrato l’efficacia dell’utilizzo di tecniche come il deep learning per rafforzare la struttura a lungo termine.
-
-Un recente studio di Roig (2014) genera melodie, concatenando pattern ritmici e melodici, campionandole da un database. 
-La selezione viene effettuata sulla base di regole musicali combinate ad un sistema probabilistico. 
-Questo approccio consente al modello di generare melodie con una struttura più ampia, facendo sì che il pezzo abbia momenti di auto-somiglianza.
+Negli ultimi anni, alcune ricerche hanno dimostrato l’efficacia dell’utilizzo di tecniche come il deep learning per rafforzare una consecuzione coerente.
 
 Horner e Goldberg (1991), pionieri nell'applicazione degli algoritmi genetici (GA) nella composizione musicale, affrontano il problema del "interpolazione tematica", ovvero la trasformazione di un pattern musicale iniziale in uno finale, durante una durata specificata. 
 Per farlo hanno utilizzato un algoritmo genetico, un tipo di metaeuristica diventato popolare negli anni '70. 
@@ -196,7 +339,7 @@ Il sistema deve generare sequenze riconoscibili nel genere target, ma non “sos
 La maggior parte degli studi adotta approcci basati sul training-set per determinare possibili accordi per un dato segmento melodico, e per garantire una corretta transiizione tra questi.
 Questi sistemi comunemente producono uno scheletro armonico, e utilizzano modelli predefiniti per creare trame ritmiche e arrangiamenti.
 
-Lee e Jang (2004) hanno utilizzato il modello di Markov del primo ordine, integrato con programmazione dinamica, per determinare il pattern armonico di una melodia canticchiata dall'utente; 
+Lee e Jang (2004) hanno utilizzato il modello di Markov, integrato con programmazione dinamica, per determinare il pattern armonico di una melodia canticchiata dall'utente; 
 le probabilità di transizione dalle note correnti vengono apprese da 150 canzoni. 
 
 Simon (2008) ha adottato un approccio simile; allenando il proprio sistema su 298 brani di vari generi come jazz, rock, pop, blues e altri. 
@@ -249,7 +392,8 @@ Il sistema tuttavia è stato utilizzato per creare transizioni piuttosto che cre
 Indipendentemente dalla rappresentazione utilizzata, la valutazione della musica è spesso un compito soggettivo e, come tale, una misura di fitness affidabile e solida può essere difficile da definire. 
 Molti dei primi ricercatori aggirarono questo problema impiegando l'uso di un giudice umano, e tali sistemi sono noti come \textbf{Interactive EC} (IEC). 
 
-Una funzione di fitness basata sull’uomo era stata precedentemente utilizzata con successo nell’evoluzione delle immagini, ma gli autori hanno notato una differenza pratica: più immagini possono essere visualizzate contemporaneamente, e molto rapidamente, 
+Una funzione di fitness basata sull’uomo era stata precedentemente utilizzata con successo nell’evoluzione delle immagini, 
+ma gli autori hanno notato una differenza pratica: più immagini possono essere visualizzate contemporaneamente, e molto rapidamente, 
 mentre la musica è un fenomeno temporale, e quindi tutti gli individui devono essere ascoltati in sequenza, uno dopo l'altro. 
 Ciò si traduce in un costo molto elevato nell’utilizzo di un essere umano come funzione di fitness.
 
@@ -263,7 +407,7 @@ Tuttavia, in questo caso ha riscontrato che i risultati erano in qualche modo ca
 
 Studi hanno fatto uso di ANN come fitness-function. 
 Gli autori hanno limitato il loro dominio, considerando solo armonie basate su tre accordi nella tonalità di Do maggiore, e creando solo melodie di quattro battute come durata. 
-La composizione è stata poi suddivisa in “mattoni” costituiti da ritmo, melodia primaria e armonia. 
+La composizione è stata poi suddivisa in “mattoni” costituiti da ritmo, melodia e armonia. 
 Per ogni blocco è stata utilizzato una algoritmo genetico per generare la popolazione, ed una ANN è stata addestrata, da esempi forniti dall'utente, per giudicare i genomi candidati.
 Gli autori hanno riconosciuto che questa combinazione di GA e ANN potrebbe produrre delle pseudo composizioni, 
 ma le limitazioni applicate al dominio di addestramento da parte dell'utente hanno limitato fortemente il modello.
@@ -628,7 +772,7 @@ Si vuole far notare, che l'algoritmo implementato in Drumify, si basa su una neu
 Infine, per le basse frequenze è stata aggiunta una semplice linea di basso, trasponendo la melodia due ottave inferiori, eliminando a mano, secondo il propio gusto, le note ridondanti, lasciando invece quelle fondamentali e di maggiore durata.
 
 Il risultato finale, nello specifico, è "quasi" accettabile, considerando che per generarlo sono state necessarie poco più di 500 linee di codice (commenti inclusi) e qualche plugin dal mondo di internet.
-Il tratto fondamentale risiede nel fatto che per ottenere questo file mp3, non abbiamo mai: né dovuto suonare un pianoforte, slappare un basso o ritmare una batteria a tempo.
+Il tratto fondamentale risiede nel fatto che per ottenere questo file mp3, non abbiamo mai: né dovuto suonare un pianoforte, pizzicare un basso o ritmare una batteria a tempo.
 
 Si possono sperimentare ulteriori modifiche, cambiando i pesi (smoothnessWeight, restWeight, harmonyWeight) o implementando un sistema nell'assegnazione della durata e velocity nelle note, ora affidate ad array con valori prefissati (rock, jazz, dance, bossa nova) e ad una scelta random rispettivamente.
 
