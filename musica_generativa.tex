@@ -12,7 +12,7 @@
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 
 \lstset{
-    basicstyle=\ttfamily\small,  % Cambia \footnotesize con la dimensione desiderata (es. \small, \large)
+    basicstyle=\ttfamily\small,  
     basicstyle=\ttfamily,
     keywordstyle=\color{blue},
     commentstyle=\color{darkgreen},
@@ -56,9 +56,7 @@
         \vspace{2cm}
         
         % Titolo
-        \HRule \\[0.4cm]
         { \huge \bfseries Musica Genetica \\[0.4cm] }
-        \HRule \\[1.5cm]
         
         \vspace{2cm}
         
@@ -142,7 +140,7 @@ Formalmente, questa proprietà si esprime come:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/markov1} 
-    \label{fig:immagine}
+    \label{fig:immagine1}
 \end{figure}
 \\
 dove $X_i$ rappresenta lo stato del sistema al tempo $i$. \\
@@ -154,7 +152,7 @@ Le righe della matrice devono sommare a 1:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/markov2} 
-    \label{fig:immagine}
+    \label{fig:immagine2}
 \end{figure}
 
 Un modello markoviano può raggiungere una distribuzione stazionaria, dove le probabilità di occupazione degli stati non cambiano più nel tempo. \\
@@ -179,7 +177,7 @@ Le ANNs sono particolarmente utili in vari campi dell'intelligenza artificiale, 
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/music phrase} 
     \caption{generica linea melodica di uno spartito}
-    \label{fig:immagine}
+    \label{fig:immagine3}
 \end{figure}
 
 \subsection{Caratteristiche di una Nota Musicale}
@@ -198,9 +196,8 @@ Di seguito un'immagine esemplificativa:
 % Inserimento di un'immagine
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/note duration} 
-    \caption{tabella riassuntiva della durata delle note}
-    \label{fig:immagine}
+    \includegraphics[width=0.7\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/note duration} 
+    \label{fig:immagine4}
 \end{figure}
 
 Intensità (Velocity): \\
@@ -211,23 +208,22 @@ Sono indicazioni come \textit{p} (piano) per suonare piano, \textit{f} (forte) p
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/dynamics} 
-    \caption{simbolismo dinamiche in uno spartito}
-    \label{fig:immagine}
+    \label{fig:immagine5}
 \end{figure}
 
 \subsection{scala armonica}
 
 La scala maggiore è una delle scale diatoniche più comuni e ha un suono generalmente percepito come "felice" o "luminosa". \\
 La scala maggiore segue uno schema specifico di toni (T) e semitoni (S). Lo schema è: \\
-\texttt{T - T - S - T - T - T - S} \\
+\texttt{T-T-S-T-T-T-S} \\
 Ad esempio, la scala di Do maggiore (C maggiore) è: \\
-\texttt{Do (C) - Re (D) - Mi (E) - Fa (F) - Sol (G) - La (A) - Si (B) - Do (C)} \\
+\texttt{Do(C)-Re(D)-Mi(E)-Fa(F)-Sol(G)-La(A)-Si(B)-Do(C)} \\
 \\
 La scala minore ha un suono generalmente percepito come "triste" o "scuro".  \\
 Segue uno schema diverso rispetto alla scala maggiore: \\
-\texttt{T - S - T - T - S - T - T} \\
+\texttt{T-S-T-T-S-T-T} \\
 Ad esempio, la scala di La minore naturale (A minore naturale) è: \\
-\texttt{La (A) - Si (B) - Do (C) - Re (D) - Mi (E) - Fa (F) - Sol (G) - La (A)} \\
+\texttt{La(A)-Si(B)-Do(C)-Re(D)-Mi(E)-Fa(F)-Sol(G)-La(A)} \\
 
 \subsection{melodia}
 
@@ -248,11 +244,11 @@ Un \textbf{problema fondamentale} nella generazione di musica tramite algoritmi,
 Esempi di Progressioni di Accordi usati comunemente in musica.\\
 \\
 Progressione \texttt{I-IV-V-I} in Do Maggiore: \\
-Accordi: \texttt{Do (C) - Fa (F) - Sol (G) - Do (C)} \\
+Accordi: \texttt{Do(C)-Fa(F)-Sol(G)-Do(C)} \\
 Uso comune nelle canzoni pop e rock (\textit{il giro di Do}) \\
 \\
 Progressione \texttt{ii-V-I} in Jazz: \\
-Accordi: \texttt{Re min. settima (Dm7) - Sol settima (G7) - Do mag. settima (Cmaj7)} \\
+Accordi: \texttt{Re min. settima(Dm7)-Sol settima(G7)-Do mag. settima(Cmaj7)} \\
 Molto usata nel jazz per creare risoluzioni armoniche sofisticate.
 
 \section{File MIDI}
@@ -264,8 +260,7 @@ Invece di memorizzare il suono effettivo come fanno i file audio, un file MIDI m
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/midi} 
-    \caption{esempio di un file midi importato in Ableton}
-    \label{fig:immagine}
+    \label{fig:immagine6}
 \end{figure}
 
 \chapter{Metodi di generazione}
@@ -376,7 +371,7 @@ Il sistema ha quindi utilizzato l'intero aggregato di frasi e misure per costrui
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/GenJam} 
     \caption{John Biles suona assieme a GenJam}
-    \label{fig:immagine}
+    \label{fig:immagine7}
 \end{figure}
 
 In studi successivi, si è \textbf{addestrata una ANN a fungere da funzione di fitness}, eliminando così la necessità dell'ascoltatore umano. \\
@@ -422,7 +417,7 @@ Ora, mappiamo i simboli alle note musicali: \\
 \texttt{A = Do} \\
 \texttt{B = Re} \\
 \\
-La sequenza generata può essere interpretata come una melodia: \texttt{Do, Do-Re, Do-Re-Do, Do-Re-Do-Do-Re}, e così via. \\
+La sequenza generata può essere interpretata come una melodia: \texttt{Do,Do-Re,Do-Re-Do,Do-Re-Do-Do-Re}, e così via. \\
 \\
 Gli L-system così permettono di generare pattern musicali ricorsivi e auto-simili che possono essere sia prevedibili che ma anche variabili. \\
 \\
@@ -440,7 +435,7 @@ Viene considerato il seguente L-System \textit{sensibile al contesto}:
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/L-system} 
     \caption{Descrizione dell'immagine}
-    \label{fig:immagine}
+    \label{fig:immagine8}
 \end{figure}
 
 Questa melodia, e altre derivate in modo simile, suonano abbastanza \textit{casuali}; ricordano un assolo jazz. \\
@@ -586,7 +581,7 @@ Di seguito un dizionario in cui troviamo come chiave, la distanza tra la nota co
 Se la differenza tra le note (\texttt{noteDifference}) è 0 (unisono), il punteggio di fluidità viene diviso per 10, penalizzando fortemente la ripetizione della stessa nota. \\
 Se la differenza è minore o uguale a 2 semitoni, aumenta il punteggio di fluidità di 1, incentivando piccoli movimenti tra le note. \\
 Se la differenza è di 11 semitoni (quasi un'ottava), il punteggio di fluidità viene diviso per 2, penalizzando questo ampio intervallo. \\
-Per altri intervalli, il punteggio di fluidità aumenta di \texttt{1 / oteDifference}, favorendo movimenti più piccoli tra le note. \\
+Per altri intervalli, il punteggio di fluidità aumenta di \texttt{1 / noteDifference}, favorendo movimenti più piccoli tra le note. \\
 Se \texttt{noteDifference} è 0, si evita la divisione per zero assegnando 0. \\
 Il codice cerca dunque di bilanciare l'armonia (basata sugli intervalli predefiniti) e la fluidità (basata sulla distanza tra note consecutive) in una sequenza musicale, con vari meccanismi per favorire o penalizzare certi tipi di movimenti tra le note. 
 
@@ -642,7 +637,7 @@ Sono riportati le opzioni scelte per una generazione musicale esemplificativa.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/setting} 
-    \label{fig:immagine}
+    \label{fig:immagine9}
 \end{figure}
 
 Al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti dalla fitness function, per i genomi di ogni popolazione.
@@ -651,7 +646,7 @@ Al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti da
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/scores} 
-    \label{fig:immagine}
+    \label{fig:immagine10}
 \end{figure}
 
 Le linee che si mantengono costanti sono i punteggi dei primi due genomi (con punteggio più alto ad ogni generazione) che nell'algoritmo scelto vengono tramandati senza alcuna alterazione (crossover, mutation). \\
@@ -664,7 +659,7 @@ Al termine della procedura evolutiva, vengono stampati i 10 genomi appartenenti 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/MIDI} 
-    \label{fig:immagine}
+    \label{fig:immagine11}
 \end{figure}
 
 La stampa rappresenta 10 file midi, dal migliore (numero 0) al "peggiore" (numero 9) secondo la nostra fitness-function. \\
@@ -694,7 +689,7 @@ Su questa vengono applicate le seguenti opzioni
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/ableton_settings} 
-    \label{fig:immagine}
+    \label{fig:immagine12}
 \end{figure}
 
 \textit{MinorTim} permette di generare più note, ad una certa distanza in semitoni, partendo dalla nota corrente. \\
@@ -717,7 +712,7 @@ Infine, per le basse frequenze è stata aggiunta una semplice linea di basso, tr
 Il risultato finale, nello specifico, è \textit{quasi accettabile}, considerando che per generarlo sono state necessarie poco più di 500 linee di codice (commenti inclusi) e qualche plugin dal mondo di internet. \\
 Il tratto fondamentale risiede nel fatto che per ottenere questo file mp3, non abbiamo mai: né dovuto suonare un pianoforte, pizzicare un basso o ritmare una batteria a tempo. \\
 \\
-Si possono sperimentare ulteriori modifiche, cambiando i pesi (\texttt{smoothnessWeight, restWeight, harmonyWeight]) o implementando un sistema nell'assegnazione della durata e velocity nelle note, ora affidate ad array con valori prefissati (rock, jazz, dance, bossa nova) e ad una scelta random rispettivamente.
+Si possono sperimentare ulteriori modifiche, cambiando i pesi (\texttt{smoothnessWeight, restWeight, harmonyWeight}) o implementando un sistema nell'assegnazione della durata e velocity nelle note, ora affidate ad array con valori prefissati (rock, jazz, dance, bossa nova) e ad una scelta random rispettivamente.
 
 \chapter{Conclusioni}
 
