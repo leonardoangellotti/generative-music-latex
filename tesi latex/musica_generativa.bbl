@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{example_article}
+John Doe and Jane Smith.
+\newblock An example article.
+\newblock {\em Journal of Examples}, 42(1):1--10, 2023.
+
+\bibitem{latex}
+Leslie Lamport.
+\newblock {\em LaTeX: A Document Preparation System}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1994.
+
+\end{thebibliography}

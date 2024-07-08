@@ -1,0 +1,4 @@
+/Users/leonardoangellotti/Desktop/"tesi latex"
+
+pdflatex musica_generativa.tex
+bibtex musica_generativa.aux

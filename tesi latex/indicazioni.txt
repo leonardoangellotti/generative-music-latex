@@ -1,0 +1,34 @@
+
+intro
+perchè vado a esplorare questi metodi e non deep learning o neural network
+(perchè generano lo spartito) 
+motivazioni in che ambito, convinzione, struttura tesi
+problema generale
+
+nozioni di base
+nozioni comuni in tutti i lavori
+intoduzione terminologia
+in modo in generale
+
+un capitoletto per ogni metodo di generazione
+che risultati sono stati ottenuti
+potenzialità litazioni per ciascun metodo
+
+esposizione progetto
+
+quali sono le limitazioni che ancora esistono
+dove si muove la ricerca
+
+citazioni, paper usati, fonti dirette da dove prendo informazioni (teoria musicale)
+
+latex overleaf, bibtex per bibliografia
+20-30 pagine
+
+consegna venerdì 12
+
+10 slide dopo
+10 min esposizione
+
+bortolussi e manzoni in cc
+
+
