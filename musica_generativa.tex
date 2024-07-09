@@ -88,11 +88,11 @@
 \centering
 
 C’è una grande differenza tra \textit{impossibile} e \textit{difficile da immaginare}. \\
-Il primo riguarda il problema; il secondo riguarda te.
+La prima riguarda il \textit{problema}; la seconda riguarda \textit{te}.
 
 \end{quote}
 
-La Musica Algoritmica ha una lunga storia nell'era pre-informatica, dai lavori 'processuali' di \href{https://youtu.be/UT5lgaE-qZY}{George Brecht (Drip Music, 1962)}, \href{https://youtu.be/pxs35GrZVAs}{Stockhausen (Setz die Segel zur Sonn, 1970)}, \href{https://youtu.be/SZazYFchLRI}{Xenakis (Metastaseis, 1971)} fino a \href{https://youtu.be/o9UsLbsdA6s}{George Lewis (Voyager, 1993)}, ecc. \\
+La Musica Algoritmica ha una lunga storia nell'era pre-informatica, dai lavori 'processuali' di \href{https://youtu.be/UT5lgaE-qZY}{George Brecht (Drip Music, 1962)}, \href{https://youtu.be/pxs35GrZVAs}{Stockhausen (Setz die Segel zur Sonn, 1970)}, \href{https://youtu.be/SZazYFchLRI}{Xenakis (Metastaseis, 1971)} fino a \href{https://youtu.be/o9UsLbsdA6s}{George Lewis (Voyager, 1993)}. \\
 
 Gli algoritmi di Intelligenza Artificiale (AI) sono una delle tecnologie più ampiamente utilizzate e potenti del ventunesimo secolo. Sebbene la definizione esatta di AI si sia costantemente evoluta, dagli anni '50 di Alan Turing, alle attuali architetture di Deep Learning come Alpha Go, 
 rimane fisso il fatto che i correnti modelli di AI per attività creative, sono attualmente agli inizi, e seguono quasi esclusivamente il modello imitato dal dataset su cui sono addestrati. \\
@@ -290,6 +290,7 @@ Comporre una melodia monofonica può sembrare un compito semplice rispetto alla 
 Tuttavia, le melodie sono più che semplici movimenti tra le note, normalmente possiedono una \textbf{struttura a lungo termine}. \\
 Negli ultimi anni, alcune ricerche hanno dimostrato l’efficacia dell’utilizzo di tecniche come il \textbf{deep learning} per rafforzare una consecuzione coerente. \\
 \\
+% da cancellare
 \textbf{Horner e Goldberg} (1991), pionieri nell'applicazione degli algoritmi genetici nella composizione musicale, affrontano il problema del \textbf{interpolazione tematica}, ovvero la trasformazione di un pattern musicale iniziale in uno finale, durante una durata specificata. \\
 È stato creato un insieme (chiamato popolazione) di soluzioni iniziali, che attraverso una combinazione simile a quella genetica, ne ha generate di nuove. \\
 \\
@@ -434,7 +435,6 @@ Viene considerato il seguente L-System \textit{sensibile al contesto}:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/tesi latex/immagini/L-system} 
-    \caption{Descrizione dell'immagine}
     \label{fig:immagine8}
 \end{figure}
 
@@ -447,76 +447,62 @@ Questo tipo di simmetria rispecchia la musica normalmente composta o improvvisat
 \chapter{Progetto di musica genetica}
 
 Viene ora introdotto un progetto di algoritmo genetico utile ad esemplificare fin quanto detto. \\
-All'interno del progetto la funzione:
+All'interno del progetto la funzione: \\
 
 % Inserimento di un esempio di codice
-\begin{lstlisting}[language=Python]
- 
-# Main function for running all helper functions and handling user input.
-def genetic_algorithm(key, root, tempo, rythm):
-
-\end{lstlisting}
-
+\\
+\texttt{\small\textcolor{darkgreen}{\# Main function for running all helper functions and handling user input.}} \\
+\texttt{\small def genetic-algorithm(key, root, tempo, rhythm)} \\
+\\
 scrive su disco 10 genotipi di sequenze di note, in formato MIDI, come risultato dell'esecuzione dell'algoritmo genetico. \\
 La funzione prende in input dall'utente \\
 \textbf{la scala} (key) utilizzata nella scelta delle note, può essere \textit{major} o \textit{minor}. \\
-\textbf{La nota fondamentale} che indica la tonalità della canzone (root), e sulla quale verrà costruita la scala (es: \texttt{C, C#, D, D#, E, F, F#, G, G#, A, A#, B}) \\
+\textbf{La nota fondamentale} che indica la tonalità della canzone (root), e sulla quale verrà costruita la scala (es: \texttt{C, C\#, D, D\#, E, F, F\#, G, G\#, A, A\#, B}) \\
 \textbf{Il numero di battiti al minuto} (bpm), ovvero la velocità di esecuzione, della composizione \\
 \textbf{il ritmo della composizione}, ovvero la durata delle note, a scelta tra quattro predefiniti (\textit{rock, jazz, dance, bossa nova}). \\
 \\
-All'interno della funzione troviamo 
-
-\begin{lstlisting}[language=Python]
-
-    # Build the scale based on the root note and chosen scale type
-    scale = buildScale(root, key)
-
-\end{lstlisting}
-
+All'interno della funzione troviamo \\
+\\
+\texttt{\small\textcolor{darkgreen}{\# Build the scale based on the root note and chosen scale type}} \\
+\texttt{\small scale = buildScale(root, key)} \\
+\\
 Restituisce un array, dove ogni numero rappresenta il codice MIDI di ogni nota. \\
 L'array rappresenta la scala, maggiore o minore, costruita partendo dalla nota fondamentale scelta. \\
 Viene eseguita poi l'evoluzione vera e propria, attraverso la crescita del genoma.
 
 \subsection{Run-Evolution}
 
-\begin{lstlisting}[language=Python]
-
-    # Run the genetic algorithm to evolve a melody using the specified mutation rate and scale
-    evolvedMelody = runEvolution(MUTATION_RATE, scale)
-
-\end{lstlisting}
-
+\texttt{\small\textcolor{darkgreen}{\# Run the genetic algorithm to evolve a melody using the specified mutation rate and scale}} \\
+\texttt{\small evolvedMelody = runEvolution(MUTATION\_RATE, scale)} \\
+\\
 \texttt{runEvolution} implementa un algoritmo genetico che migliora in modo iterativo la popolazione di genomi musicali attraverso selezione, crossover e mutazione, l'esecuzione avviene finché non viene raggiunto un genoma con il punteggio \texttt{MAX-FITNESS} specificato. \\
 Viene inizialmente creata un popolazione, inizializzata con metodo random. La popolazione è composta da 10 genomi. \\
 Ogni genoma è un elenco di 8 battute, ciascuna contenente 8 note, tutte scelte casualmente dalla scala specificata. \\
-Il codice che segue rappresenta lo sviluppo dell'algoritmo genetico utilizzato.
+Il codice che segue rappresenta lo sviluppo dell'algoritmo genetico utilizzato. \\
+\\
+\texttt{\small\textcolor{darkgreen}{\# Iterate for a maximum number of generations}} \\
+\texttt{\small for \_ in range(MAX\_GENERATIONS):} \\
 
-\begin{lstlisting}[language=Python]
-
- # Iterate for a maximum number of generations
-    for _ in range(MAX_GENERATIONS):
-
-        # Sort the population based on fitness scores in descending order
-        population = sorted(population, key=fitnessFunction, reverse=True)
+\indent        \texttt{\small\textcolor{darkgreen}{\# Sort the population based on fitness scores in descending order}} \\
+\indent        \texttt{\small population = sorted(population, key=fitnessFunction, reverse=True)} \\
         
-        # Select the top 2 genomes (the fittest) to carry over to the next generation
-        nextGeneration = population[:2]
+\indent        \texttt{\small\textcolor{darkgreen}{\# Select the top 2 genomes (the fittest) to carry over to the next generation}} \\
+\indent        \texttt{\small nextGeneration = population[:2]} \\
 
-        # Generate the rest of the next generation through crossover and mutation
-        for _ in range(len(population) // 2 - 1):
+\indent        \texttt{\small\textcolor{darkgreen}{\# Generate the rest of the next generation through crossover and mutation}} \\
+\indent        \texttt{\small for \_ in range(len(population) // 2 - 1):} \\
 
-            # Select two parent genomes based on their fitness
-            parentA, parentB = selectParents(population)
-            # Perform crossover to produce two child genomes
-            childA, childB = multipointCrossover(parentA, parentB)
-            # Mutate the child genomes and add them to the next generation
-            nextGeneration += [mutateGenome(childA, mutationRate, scale), mutateGenome(childB, mutationRate, scale)]
+\indent\indent            \texttt{\small\textcolor{darkgreen}{\# Select two parent genomes based on their fitness}} \\
+\indent\indent            \texttt{\small parentA, parentB = selectParents(population)} \\
+\indent\indent            \texttt{\small\textcolor{darkgreen}{\# Perform crossover to produce two child genomes}} \\
+\indent\indent            \texttt{\small childA, childB = multipointCrossover(parentA, parentB)} \\
+\indent\indent            \texttt{\small\textcolor{darkgreen}{\# Mutate the child genomes and add them to the next generation}} \\
+\indent\indent            \texttt{\small nextGeneration += [mutateGenome(childA, mutationRate, scale),} \\
+\indent\indent            \texttt{\small mutateGenome(childB, mutationRate, scale)]} \\
 
-        # Update the population with the new generation
-        population = nextGeneration
+\indent        \texttt{\small\textcolor{darkgreen}{\# Update the population with the new generation}} \\
+\indent        \texttt{\small population = nextGeneration} \\
         
-\end{lstlisting}
-
 Per un numero massimo di generazioni prefissato, vengono create popolazioni di genomi. \\
 Successivamente alla prima inizializzazione randomica, viene applicata la Fitness-Function, che assegna ad ogni genoma un peso/punteggio basandosi sui propri criteri di valutazione (vedremo in seguito). \\
 Nella successiva popolazione vengono mantenuti i primi due genomi con il punteggio più alto, mentre per i restanti 8 vengono selezionati di volta in volta due genitori, da cui attraverso un (multipoint) crossover danno luogo a due figli, i quali subiscono una fase di mutazione. \\
@@ -529,34 +515,23 @@ Il migliore tra questi (con punteggio più alto) viene chiamato \texttt{best-gen
 \subsection{fitness-function}
 
 La fitness function calcola il punteggio finale ponderando e sommando i punteggi dei componenti per \textbf{fluidità, ritmo e armonia}, restituendo il risultato. \\
-Vengono inizializzati i pesi e i punteggi.
+Vengono inizializzati i pesi e i punteggi. \\
+\\
+\texttt{\small\textcolor{darkgreen}{\# Weights for the different fitness components}} \\
+    \texttt{\small smoothnessWeight = 15} \\
+    \texttt{\small restWeight = 5} \\
+    \texttt{\small harmonyWeight = 20} \\
+\\
+\texttt{\small\textcolor{darkgreen}{\# Initialize fitness scores}} \\
+    \texttt{\small smoothnessScore = 0} \\
+    \texttt{\small restScore = 0} \\
+    \texttt{\small harmonyScore = 0} \\
+\\
+L' \texttt{harmonyscore} riporta il punteggio di armonizzazione tra le note, ovvero come queste suonino \textit{bene} tra loro. \\
+Di seguito un dizionario in cui troviamo come chiave, la distanza tra la nota corrente e la precedente, e come valore, il punteggio assegnato a tale distanza armonica. \\
 
-\begin{lstlisting}[language=Python]
-
- # Weights for the different fitness components
-    smoothnessWeight = 15
-    restWeight = 5
-    harmonyWeight = 20
-
-    # Initialize fitness scores
-    smoothnessScore = 0
-    restScore = 0
-    harmonyScore = 0
-    
-\end{lstlisting}
-
-L'harmonyscore riporta il punteggio di armonizzazione tra le note, ovvero come queste suonino \textit{bene} tra loro. \\
-Di seguito un dizionario in cui troviamo come chiave, la distanza tra la nota corrente e la precedente, e come valore, il punteggio assegnato a tale distanza armonica.
-
-\begin{lstlisting}[language=Python]
-
-    # Harmony intervals table for scoring harmony
-    harmonyIntervalsTable = {
-        0: -20, 1: 5, 2: 5, 3: 50, 4: 50, 5: 30, 6: -10, 7: 50, 8: 10, 9: 40, 10: -2, 11: -2, 12: 10,
-        13: -5, 14: 5, 15: 5, 16: 50, 17: 50, 18: 30, 19: -10, 20: 50, 21: 10, 22: 40, 23: -2, 24: -2, 25: 10
-    }
-
-\end{lstlisting}
+\texttt{\small\textcolor{darkgreen}{\# Harmony intervals table for scoring harmony}} \\
+\texttt{\small harmonyIntervalsTable = \{0: -20, 1: 5, 2: 5, 3: 50, 4: 50, 5: 30, 6: -10, 7: 50, 8: 10, 9: 40, 10: -2, 11: -2, 12: 10, 13: -5, 14: 5, 15: 5, 16: 50, 17: 50, 18: 30, 19: -10, 20: 50, 21: 10, 22: 40, 23: -2, 24: -2, 25: 10\}} \\
 
 - Intervalli consonanti perfetti (0, 7, 12, 19, 24 semitoni): Questi intervalli, che corrispondono alle ottave e quinte perfette (e le loro ripetizioni all'ottava superiore), hanno punteggi molto alti (50 o 10), ad indicare di essere \textit{armoniosi}. \\
     - 0 (Unisono): 50 \\
@@ -582,51 +557,32 @@ Se la differenza tra le note (\texttt{noteDifference}) è 0 (unisono), il punteg
 Se la differenza è minore o uguale a 2 semitoni, aumenta il punteggio di fluidità di 1, incentivando piccoli movimenti tra le note. \\
 Se la differenza è di 11 semitoni (quasi un'ottava), il punteggio di fluidità viene diviso per 2, penalizzando questo ampio intervallo. \\
 Per altri intervalli, il punteggio di fluidità aumenta di \texttt{1 / noteDifference}, favorendo movimenti più piccoli tra le note. \\
-Se \texttt{noteDifference} è 0, si evita la divisione per zero assegnando 0. \\
-Il codice cerca dunque di bilanciare l'armonia (basata sugli intervalli predefiniti) e la fluidità (basata sulla distanza tra note consecutive) in una sequenza musicale, con vari meccanismi per favorire o penalizzare certi tipi di movimenti tra le note. 
-
-\begin{lstlisting}[language=Python]
-
-if note is None and prevNote is None:
-    consecutiveRests += 1
-
-\end{lstlisting}
-
-Se entrambe note e \texttt{prevNote} sono \texttt{None}, significa che si è verificata una pausa consecutiva: Incrementa il contatore \texttt{consecutiveRests}.
-
-\begin{lstlisting}[language=Python]
-
-if numRests * 10 <= len(flatten(genome)):
-    restScore += 10
-
-\end{lstlisting}
-
+\\
+\texttt{\small if note is None and prevNote is None:} \\
+\indent \texttt{\small consecutiveRests += 1} \\
+\\
+Se entrambe \texttt{note} e \texttt{prevNote} sono \texttt{None}, significa che si è verificata una pausa consecutiva: Incrementa il contatore \texttt{consecutiveRests}. \\
+\\
+\texttt{\small if numRests * 10 <= len(flatten(genome)):} \\
+\indent \texttt{\small restScore += 10} \\
+\\
 Se il numero di pause (\texttt{numRests}) moltiplicato per 10 è inferiore o uguale alla lunghezza della sequenza musicale piatta (\texttt{flatten(genome)}), aumenta il punteggio ritmico (\texttt{restScore}) di 10. \\
-Questo premia una quantità ragionevole di pause nel contesto della lunghezza totale del genoma musicale, suggerendo che alcune pause sono considerate musicalmente desiderabili.
-
-\begin{lstlisting}[language=Python]
-
-if consecutiveRests:
-    restScore -= (consecutiveRests * 10)
-
-\end{lstlisting}
-
+Questo premia una quantità ragionevole di pause nel contesto della lunghezza totale del genoma musicale, suggerendo che alcune pause sono considerate musicalmente desiderabili. \\
+\\
+\texttt{\small if consecutiveRests:} \\
+\indent \texttt{\small restScore -= (consecutiveRests * 10)} \\
+\\
 Se ci sono pause consecutive (\texttt{consecutiveRests > 0}), penalizza il punteggio ritmico diminuendo \texttt{restScore} di \texttt{consecutiveRests * 10}. \\
-Questo penalizza pesantemente le pause consecutive, suggerendo che una lunga serie di pause è considerata indesiderabile dal punto di vista ritmico.
-
-\begin{lstlisting}[language=Python]
-
-fitness_weight_genome = (smoothnessScore * smoothnessWeight) + (restScore * restWeight) + (harmonyScore * harmonyWeight)
-
-\end{lstlisting}
-
-Il punteggio di fitness finale (\texttt{fitness-weight-genome}) è calcolato come la somma ponderata dei punteggi componenti. \\
+Questo penalizza pesantemente le pause consecutive, suggerendo che una lunga serie di pause è considerata indesiderabile dal punto di vista ritmico. \\
+\\
+\texttt{\small fitness\_weight\_genome = (smoothnessScore * smoothnessWeight) + (restScore * restWeight) + (harmonyScore * harmonyWeight)} \\
+\\
+Il punteggio di fitness finale (\texttt{fitness\_weight\_genome}) è calcolato come la somma ponderata dei punteggi ottenuti. \\
 Ogni punteggio componente (\texttt{smoothnessScore, restScore, harmonyScore}) viene moltiplicato per il rispettivo peso (\texttt{smoothnessWeight, restWeight, harmonyWeight}). \\
 La somma dei prodotti risultanti rappresenta il punteggio di fitness finale del genoma. \\
 \\
 I pesi (\texttt{smoothnessWeight, restWeight, harmonyWeight}) permettono di enfatizzare o de-enfatizzare specifici aspetti della valutazione a seconda degli obiettivi desiderati per la composizione musicale. \\
 Ad esempio, aumentando il peso della fluidità, si darà maggiore importanza alle transizioni tra le note, mentre aumentando il peso dell'armonia, si enfatizzerà la qualità armonica della melodia. \\
-Questo metodo di valutazione è utile in contesti come algoritmi genetici per la generazione di musica, dove è necessario valutare e selezionare sequenze musicali basate su criteri compositi.
 
 \subsection{risultati}
 
@@ -640,20 +596,20 @@ Sono riportati le opzioni scelte per una generazione musicale esemplificativa.
     \label{fig:immagine9}
 \end{figure}
 
-Al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti dalla fitness function, per i genomi di ogni popolazione.
+Al termine dell'esecuzione vengono stampati i risultati dei punteggi ottenuti dalla fitness function per i genomi di ogni popolazione.
 
 % Inserimento di un'immagine
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/scores} 
+    \includegraphics[width=1.3\textwidth]{/Users/leonardoangellotti/Desktop/università/terzo anno/tesi/MusicGeneticAlgorithm-main/genetic_music/final results rock/results/scores} 
     \label{fig:immagine10}
 \end{figure}
 
 Le linee che si mantengono costanti sono i punteggi dei primi due genomi (con punteggio più alto ad ogni generazione) che nell'algoritmo scelto vengono tramandati senza alcuna alterazione (crossover, mutation). \\
-Quando "nasce" un nuovo genoma che si verifica avere un punteggio più altro dei primi due, questo fissa un nuovo livello di punteggio superiore ai precedenti, che viene mantenuto finché ciò non accade nuovamente. \\
+Quando \textit{nasce} un nuovo genoma che si verifica avere un punteggio più altro dei primi due, questo fissa un nuovo livello di punteggio superiore ai precedenti, che viene mantenuto finché ciò non accade nuovamente. \\
 Questa procedura garantisce un costante aumento del punteggio e un conseguente miglioramento tra le popolazioni. \\
-La nuvola di punti che appaiono al di sotto, con punteggio inferiore, appartengono al set di genomi soggetti a crossover e mutazioni. \\
-Al termine della procedura evolutiva, vengono stampati i 10 genomi appartenenti all'ultima popolazione.
+La nuvola di punti che appaiono al di sotto, con punteggio inferiore, descrive il set di genomi soggetti a crossover e mutazioni. \\
+Al termine della procedura evolutiva, vengono stampati i 10 genomi appartenenti all'ultima popolazione. (Le note nella stampa hanno durata unitaria)
 
 % Inserimento di un'immagine
 \begin{figure}[H]
@@ -662,21 +618,22 @@ Al termine della procedura evolutiva, vengono stampati i 10 genomi appartenenti 
     \label{fig:immagine11}
 \end{figure}
 
-La stampa rappresenta 10 file midi, dal migliore (numero 0) al "peggiore" (numero 9) secondo la nostra fitness-function. \\
+La stampa rappresenta 10 file midi, dal \textit{migliore} (numero 0) al \textit{peggiore} (numero 9) secondo la nostra fitness-function. \\
 Le note sono rappresentate dalle linee orizzontali che appaiono a diverse altezze di pitch, indicati nell'asse delle ordinate. \\
 Le note sono sequenziali, appaiono dunque in momenti consecutivi, con diversa durata (dettata dal ritmo scelto dall'utente). \\
 Si ricorda che l'algoritmo genera una sequenza monofonica, infatti non appare più di una nota contemporaneamente. \\
 Le sequenze vengono salvate su disco. \\
 Il genoma migliore prende il nome di \texttt{best-genome.mid}, mentre ai restanti viene assegnato un numero in ordine decrescente in punteggio (\texttt{genome-0.mid}, ..., \texttt{genome-8.mid}). \\
 \\
-Ad un primo ascolto di \texttt{best-genome.mid}, percepiamo un movimento coerente nella teoria, ordinato nel ritmo, ma non regolare nel tempo. \\
+Ad un primo ascolto di \texttt{best-genome.mid}, percepiamo un movimento coerente nella teoria, ordinato nel ritmo, ma \textit{non armonioso} nel tempo. \\
 Non viene percepita infatti alcuna vera struttura compositiva, questo perché la fitness function si è preoccupata di fare confronti solo tra una nota e la precedente, e non tra tutte le note della sequenza. \\
 Non esiste dunque una vera struttura a lungo termine, una struttura narrativa, avente inizio svolgimento e fine, propria invece di qualsiasi genere musicale. \\
-Non è presente nemmeno il classico schema delle canzoni pop: \textit{verso-ritornello-verso-ritornello-bridge-ritornello}. \\
+Non è presente nemmeno il classico schema delle canzoni pop: \\
+\textit{verso-ritornello-verso-ritornello-bridge-ritornello}. \\
 \\
 Per ovviare a questo difetto si procedere con un'operazione naive ma efficace: \\
-Si decide di generare una nuova sequenza, chiamata \texttt{repeated-melody.mid}, la quale ripete per 4 volte le prime 3 bar prese dal \texttt{best-genome.mid}. \\
-Il risultato risulta essere \textit{ripetitivo} e dunque intrinsecamente più regolare, oltre a essere per il nostro orecchio più confortevole. \\
+Si decide di generare una nuova sequenza, chiamata \texttt{repeated-melody.mid}, la quale ripete per 4 volte le prime 3 battute prese dal \texttt{best-genome.mid}. \\
+Il risultato risulta essere \textit{ripetitivo} e dunque \textit{intrinsecamente} più regolare, oltre a essere per il nostro orecchio più \textit{confortevole}. \\
 \\
 Abbiamo dunque ottenuto un risultato teorico \textit{accettabile} e \textit{coerente}. \\
 Possiamo ottenere di più nella pratica? \\
@@ -693,13 +650,13 @@ Su questa vengono applicate le seguenti opzioni
 \end{figure}
 
 \textit{MinorTim} permette di generare più note, ad una certa distanza in semitoni, partendo dalla nota corrente. \\
-Nel caso specifico un accordo minore. \\
-Tuttavia un primo ascolto risulta essere poco piacevole, perché le note generate non considerano la scala di riferimento. \\
-È necessario dunque usare lo strumento "Minor" per ancorare ogni nota in una posizione coerente. \\
-Il risultato è decisamente più armonico, seppur tuttavia ancor troppo \texttt{piatto} con nessuna variazione nell'esecuzione. \\
-Per far fronte a questa \texttt{freddezza} ed aumentare la dinamicità è possibile randomizzare, in modo automatico, i valori di Velocity nella sequenza per ciascuna nota. \\
-Un nuovo ascolto ci ricorda un qualche compositore jazz, immerso nel suo fiume di sentimenti, vissuti istante per istante, 
-ma che vuole comunque mantenere, per piacere della clientela, un ritmo e melodia regolari. \\
+Nel caso specifico si costruisce un accordo minore per ogni nota. \\
+Un primo ascolto risulta essere poco piacevole, perché le note generate non considerano la scala di riferimento. \\
+È necessario dunque usare lo strumento \textit{Minor} per ancorare ogni nota in una posizione coerente. \\
+Il risultato è decisamente più armonico, seppur tuttavia ancor troppo \textit{piatto} con nessuna variazione nell'esecuzione. \\
+Per far fronte a questa \textit{freddezza} ed aumentare la dinamicità è possibile randomizzare, in modo automatico, i valori di velocity nella sequenza per ciascuna nota. \\
+Un nuovo ascolto ci rimanda ad un qualche compositore jazz, immerso nel suo fiume di sentimenti, vissuti istante per istante, 
+volendo comunque mantenere, per piacere della clientela, un ritmo e melodia regolari. \\
 \\
 Per rendere il risultato ancor più gradevole, e musicalmente completo, possiamo aggiungere un elemento di percussioni, come una batteria. \\
 Per il risultato ottenuto è stato utilizzato il plug-in \href{https://magenta.tensorflow.org/studio}{Magenta}  sviluppato da Google e attualmente disponibile gratuitamente. \\
@@ -717,17 +674,16 @@ Si possono sperimentare ulteriori modifiche, cambiando i pesi (\texttt{smoothnes
 \chapter{Conclusioni}
 
 Negli ultimi decenni, la ricerca sulla generazione musicale ha compiuto enormi progressi nella generazione di aspetti ben definiti della musica, come la melodia, l’armonia, il ritmo e il timbro. \\
-Modelli statistici all’avanguardia, tecniche di ottimizzazione avanzate, database digitali più grandi su cui addestrare i modelli e l’aumento della potenza di calcolo hanno portato alla produzione di sistemi migliori. \\
+Modelli statistici all’avanguardia, tecniche di ottimizzazione avanzate, database digitali più grandi su cui addestrare i modelli e l’aumento della potenza di calcolo hanno portato alla produzione di sistemi accurati. \\
 \\
-Perché allora non utilizziamo sistemi di generazione musicale nella nostra vita quotidiana? \\
+\textit{Perché allora non utilizziamo sistemi di generazione musicale nella nostra vita quotidiana?} \\
 \\
 L’indagine di cui sopra mostra che rimane un’importante sfida generale: quella di creare musica con una struttura a lungo termine. \\
 La struttura a lungo termine, che spesso assume la forma di temi, motivi e schemi ricorrenti, è una parte essenziale di qualsiasi esperienza di ascolto musicale. \\
-Per rendere i sistemi musicali generati dal computer parte della nostra vita quotidiana, c’è bisogno di sistemi più “narrativi", in grado cioè di creare un inizio, sviluppo e conclusione nella musica. \\
-Sebbene ci siano recenti tentativi di generare musica con tensione [Farbood et al. 2007; Herremans e Chew 2016a], che sia applicata a colonne per videogiochi o che accompagnano film, c’è ancora margine di miglioramento per comprendere meglio la connessione tra musica ed emozione. \\
-Sebbene le tecniche di apprendimento automatico possano essere estremamente efficaci, di solito richiedono grandi quantità di dati. \\
+Per rendere i sistemi musicali generati dal computer parte della nostra vita quotidiana, c’è bisogno di sistemi più \textit{narrativi}, in grado cioè di creare un inizio, sviluppo e conclusione nella musica. \\
+
 Esiste un potenziale reale affinché il lavoro futuro si sposti verso sistemi intelligenti che non richiedano abbondanti quantità di tracce audio, o sequenze musicali, 
-capaci cioè di un ragionamento innato, rispecchiando meglio il funzionamento della mente umana. \\
+ma che siano capaci di un ragionamento innato, rispecchiando il funzionamento della mente umana. \\
 Ciò risolverebbe anche la continua sfida di trovare un equilibrio tra la rigenerazione della musica esistente, o frammenti di questa senza ricadere nel plagio.
 
 \appendix
