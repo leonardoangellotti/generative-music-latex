@@ -11,14 +11,12 @@ Project focused on generative music algorithms and LaTeX-based documentation for
 
 ## Structure
 
-- `src/` — source code and generation scripts
-- `latex/` — LaTeX documents and reports
-- `output/` — generated music and results
-- `assets/` — figures and supporting material
+- `final results rock/` — generated music and results
+- `tesi latex/` — LaTeX documents and reports
 
 ## Usage
 
-Compile the LaTeX documents with:
+just run genetic_v8.py to generate a music sequence 
 
 ```bash
-pdflatex main.tex
+python genetic_v8.py
